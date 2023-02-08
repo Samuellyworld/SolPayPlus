@@ -1,1 +1,1 @@
-# sol-pay-bill
+# sol-pay-bill smart contracts
