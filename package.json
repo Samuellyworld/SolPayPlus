@@ -1,0 +1,26 @@
+{
+  "name": "sol-pay-bill",
+  "version": "1.0.0",
+  "description": "sol-pay allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-server": "cd server && npm install",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-client && npm run install-server",
+    "server": "cd server && npm run dev",
+    "client" : "npm start --prefix client",
+    "start" : "npm run server & npm run client",
+    "deploy" : "npm run build --prefix client && npm run dev --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samuellyworld/sol-pay-bill.git"
+  },
+  "author": "Samuel Aspirin & David Kazeem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Samuellyworld/sol-pay-bill/issues"
+  },
+  "homepage": "https://github.com/Samuellyworld/sol-pay-bill#readme"
+}
