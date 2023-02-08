@@ -1,13 +1,12 @@
 // importing relevant modules
 import dotenv from 'dotenv';
 
+// import relevant types
+import {defaultConfigTypes} from '../types/config.types';
+
 //using .env
 dotenv.config();
 
-// defaultConfig Types
-interface defaultConfigTypes {
-   PORT: number,
-}
 
 // defaultConfig object - this contains any config strings || numbers
 export const defaultConfig:defaultConfigTypes = {
