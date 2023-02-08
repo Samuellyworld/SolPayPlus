@@ -4,7 +4,11 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "npx tsc",
+    "start" : "node ./dist/server.js",
+    "dist" : "tsc -p .",
+    "dev" : "nodemon server.ts"
   },
   "author": "Samuel Aspirin & Kazeem David",
   "license": "ISC",
