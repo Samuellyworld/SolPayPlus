@@ -17,7 +17,7 @@ app.use(cors());
 
 //routes
 app.get('/', (req,res) => {
-    res.json("Backend server is Live 👨🏼‍🍳")
+    res.json("Backend server is Live 👨🏼‍🍳");
 })
  
 // this is a mockup endpoint
