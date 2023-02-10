@@ -5,7 +5,7 @@ import morgan from 'morgan';
 
 // importing routes
 import { paymentRouter } from './routes/payment.router';
-
+import { rateRouter } from './routes/rate.router';
 
 // start an express server
 export const app = express();
@@ -23,3 +23,6 @@ app.get('/', (req,res) => {
 // this is a mockup endpoint
 //get all USDT conversion rate
 app.use('/payment', paymentRouter);
+app.use('/rate', rateRouter);
+
+
