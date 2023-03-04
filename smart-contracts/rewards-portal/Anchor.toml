@@ -1,0 +1,15 @@
+[features]
+seeds = false
+skip-lint = false
+[programs.devnet]
+rewards_portal = "JYL8VC6nj5WbnNYnMyy8rCaPDiDtdQ31ggdiwUdYZgH"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Devnet"
+wallet = "/Users/mac/.config/solana/id.json"
+
+[scripts]
+test = "node tests/rewards-portal.js"
