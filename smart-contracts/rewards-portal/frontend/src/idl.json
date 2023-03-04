@@ -1,0 +1,99 @@
+{
+  "version": "0.1.0",
+  "name": "rewards_portal",
+  "instructions": [
+    {
+      "name": "createAccount",
+      "accounts": [
+        {
+          "name": "sppuser",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "addCashback",
+      "accounts": [
+        {
+          "name": "sppuser",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "useCashback",
+      "accounts": [
+        {
+          "name": "sppuser",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "SolPayPlusUser",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "publicKey"
+          },
+          {
+            "name": "cashbackBalance",
+            "type": "u64"
+          },
+          {
+            "name": "cashbackTotal",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "JYL8VC6nj5WbnNYnMyy8rCaPDiDtdQ31ggdiwUdYZgH"
+  }
+}
