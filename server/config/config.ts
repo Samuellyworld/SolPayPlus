@@ -10,8 +10,9 @@ dotenv.config();
 
 // defaultConfig object - this contains any config strings || numbers
 export const defaultConfig:defaultConfigTypes = {
-   PORT : Number(process.env.PORT),
-   FLW_PUBLIC_KEY:String(process.env.FLW_PUBLIC_KEY),
-   FLW_SECRET_KEY:String(process.env.FLW_SECRET_KEY)
+   PORT: Number(process.env.PORT) || 8000,
+   FLW_PUBLIC_KEY: String(process.env.FLW_PUBLIC_KEY),
+   FLW_SECRET_KEY: String(process.env.FLW_SECRET_KEY),
+   MERCHANT_ADDRESS: String(process.env.MERCHANT_ADDRESS)
 }
 
