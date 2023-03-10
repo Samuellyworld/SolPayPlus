@@ -1,7 +1,7 @@
 // import styled from styled components
 import styled from "styled-components"
 
-
+// footer container styles
 export const FooterContainer = styled.div`
   display : flex;
   background : white;
@@ -9,7 +9,7 @@ export const FooterContainer = styled.div`
   flex-direction: column;
 
 `
-
+// footer D styles
 export const FooterD = styled.div`
     display : flex;
     background : black;
@@ -61,7 +61,6 @@ export const FooterD = styled.div`
         font-weight: 400;
         color : white;
       }
-
 
     
 `

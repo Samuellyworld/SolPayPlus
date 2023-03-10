@@ -1,8 +1,8 @@
-// importing relevant modules
-
+// importing relevant styles
 import { HeroImage, HeroSectionContainer,Image, ImagesContainer, TransactionsContainer, TransactionsText } from "./hero-section.styles";
 
-const HeroSection = () => {
+// JSX Component
+const HeroSection :  () => JSX.Element = () => {
     return (
          <HeroSectionContainer>
              <TransactionsContainer>

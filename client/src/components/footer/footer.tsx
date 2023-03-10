@@ -1,8 +1,8 @@
 // import relevant styles
-
 import { FooterContainer, FooterD } from "./footer.styles";
 
-const Footer = () => {
+// JSX Component
+const Footer : () => JSX.Element = () => {
     return (
         <FooterContainer>
         <FooterD>

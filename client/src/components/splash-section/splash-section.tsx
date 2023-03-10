@@ -2,8 +2,7 @@
 
 import { SplashContainer, SplashLeft } from "./splash-section.styles";
 
-// splash section
-
+// splash section JSX Component
 const SplashSection : () => JSX.Element = () => {
     return (
         <SplashContainer>

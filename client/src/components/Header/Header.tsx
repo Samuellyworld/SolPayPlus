@@ -1,7 +1,7 @@
 //import relevant modules
-
 import { HeaderConnectContainer, HeaderConnectWallet, HeaderContainer, Logo, LogoContainer, LogoHeader } from "./header.styles";
 
+// header component
 const Header : () => JSX.Element = () => {
    return (
      <HeaderContainer>

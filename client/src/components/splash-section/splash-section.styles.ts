@@ -1,6 +1,7 @@
 // import styled from styled-components;
 import styled from "styled-components"
 
+// splash container styles
 export const SplashContainer = styled.div`
     display : flex;
     justify-content : space-between;
@@ -18,6 +19,7 @@ export const SplashContainer = styled.div`
 
 `
 
+// splash left styles
 export const SplashLeft = styled.div`
     display : flex;
     flex-direction : column;
@@ -86,6 +88,7 @@ export const SplashLeft = styled.div`
     }
 `
 
+// image map styles 
 export const ImageMap = styled.img`
    position : absolute;
    right : 11.24rem;
