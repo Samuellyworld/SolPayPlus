@@ -1,6 +1,7 @@
 // import styled from styled components
 import styled from "styled-components"
 
+// hero section container styles
 export const HeroSectionContainer = styled.div`
     display: flex;
     flex-direction : column;
@@ -9,6 +10,7 @@ export const HeroSectionContainer = styled.div`
     // height: 100vh;
 `
 
+// transactions container styles
 export const TransactionsContainer = styled.div`
     padding: 3rem 0;
     display : flex;
@@ -18,6 +20,7 @@ export const TransactionsContainer = styled.div`
     margin : 2rem 0rem 0rem 0rem;
 `
 
+// transactions text styles
 export const TransactionsText = styled.span`
     font-size: 1.2rem;
     font-weight: bold;
@@ -45,6 +48,7 @@ export const TransactionsText = styled.span`
     }
 `
 
+// images container styles
 export const ImagesContainer = styled.div`
     display : flex;
     justify-content : center;
@@ -55,6 +59,7 @@ export const ImagesContainer = styled.div`
 
 `
 
+// image styles
 export const Image = styled.div`
     position : relative;
     display : flex;
@@ -71,6 +76,7 @@ export const Image = styled.div`
     }
 
 `
+// hero image styles
 export const HeroImage = styled.div`
       width : 100%;
       margin-top: -60px;

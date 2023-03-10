@@ -5,7 +5,8 @@ import Header from "../components/header/header";
 import HeroSection from "../components/hero-section/hero-section";
 import SplashSection from "../components/splash-section/splash-section";
 
-const LandingPage = () => {
+// landing page JSX Component
+const LandingPage : () => JSX.Element = () => {
     return (
       <div className="landing">
         <div className="bg">

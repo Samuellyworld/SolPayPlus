@@ -1,5 +1,7 @@
+// import styled from styled-components
 import styled from "styled-components";
 
+// header container styles
 export const HeaderContainer = styled.div`
    display : flex;
    justify-content : space-between;
@@ -11,6 +13,7 @@ export const HeaderContainer = styled.div`
    
 `
 
+// logo container styles
 export const LogoContainer = styled.div`
   display : flex;
   justify-content : center;
@@ -18,11 +21,12 @@ export const LogoContainer = styled.div`
   gap: 0.3rem;
 `
 
+// logo styles
 export const Logo = styled.img`
    width : 1.5rem;
    height: 2rem;
 `
-
+// logo header styles
 export const LogoHeader = styled.p`
   font-size : 1rem;
   font-family: 'Space Grotesk';
@@ -30,6 +34,7 @@ export const LogoHeader = styled.p`
   font-weight: 400;
 `
 
+// header connect container styles
 export const HeaderConnectContainer = styled.div`
    display : flex;
    gap : 2rem;
@@ -57,6 +62,7 @@ export const HeaderConnectContainer = styled.div`
     }
 
 `
+// header connect wallet styles
 export const HeaderConnectWallet = styled.button`
    display : flex;
    gap: 0.7rem;
