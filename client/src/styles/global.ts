@@ -17,6 +17,12 @@ export const GlobalStyle = createGlobalStyle`
     margin:0; 
     width:100%;
     overflow-x : hidden;
+    background : url('/assets/bg.png');
+    background-size: cover;
+  }
+
+  .landing {
+    
   }
   
   html {
