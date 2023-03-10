@@ -1,8 +1,8 @@
 //import relevant modules
 
-import { HeaderConnectContainer, HeaderConnectWallet, HeaderContainer, Logo, LogoContainer, LogoHeader } from "./Header.styles";
+import { HeaderConnectContainer, HeaderConnectWallet, HeaderContainer, Logo, LogoContainer, LogoHeader } from "./header.styles";
 
-const Header = () => {
+const Header : () => JSX.Element = () => {
    return (
      <HeaderContainer>
       <LogoContainer>
