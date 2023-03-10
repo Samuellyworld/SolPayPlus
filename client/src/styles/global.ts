@@ -17,12 +17,54 @@ export const GlobalStyle = createGlobalStyle`
     margin:0; 
     width:100%;
     overflow-x : hidden;
-    background : url('/assets/bg.png');
-    background-size: cover;
-  }
+  
 
-  .landing {
-    
+  .bg {
+    background: url('/assets/landing.png');
+    background-position-y : -5.3rem;
+    background-position-x : 9rem;
+    background-size: cover;
+    background-repeat : no-repeat;
+
+    @media screen and (max-width : 1400px) and (min-width : 1370px) {
+        background-position-y : -4.3rem;
+    }
+    @media screen and (max-width : 1370px) and (min-width : 1300px) {
+        background-position-y : -3.3rem;
+    }
+    @media screen and (max-width : 1300px) and (min-width : 1280px) {
+        background-position-y : -2.3rem;
+    }
+    @media screen and (max-width : 1280px) and (min-width: 1200px) {
+        background-position-y : -1.3rem
+    }
+    @media screen and (max-width : 1200px) and (min-width : 1035px) {
+        background-position-y : 0rem;
+    }
+    @media screen and (max-width : 1035px) and (min-width : 900px) {
+        background-position-y : -4rem;
+        background-position-x : -4rem;
+        background-size : 130%;
+    }
+    @media screen and (max-width : 900px) and (min-width : 800px) {
+        background-position-y : -2rem;
+        background-position-x : -4rem;
+        background-size : 130%;
+    }
+    @media screen and (max-width : 800px) and (min-width : 700px) {
+        background-position-y : 1rem;
+        background-position-x : -4rem;
+        background-size : 133%;
+    }
+    @media screen and (max-width : 700px) and (min-width : 650px) {
+        background-position-y : 1rem;
+        background-position-x : -6rem;
+        background-size : 140%;
+    }
+    @media screen and (max-width : 650px) {
+        background : url('/assets/bg.png');
+    }
+  }
   }
   
   html {

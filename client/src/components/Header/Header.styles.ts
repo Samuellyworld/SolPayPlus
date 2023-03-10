@@ -4,7 +4,11 @@ export const HeaderContainer = styled.div`
    display : flex;
    justify-content : space-between;
    padding : 2.5rem 2rem;
-
+   
+   @media screen and (max-width : 650px) {
+      padding : 2rem 1rem;
+   }
+   
 `
 
 export const LogoContainer = styled.div`
@@ -31,6 +35,9 @@ export const HeaderConnectContainer = styled.div`
    gap : 2rem;
    margin : 0rem 5rem 0rem 0rem;
 
+   @media screen and (max-width: 1100px) {
+     margin : 0rem 1rem 0rem 0rem; 
+   }
    p {
     display : flex;
     justify-content : center;
