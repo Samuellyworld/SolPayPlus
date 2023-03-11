@@ -1,7 +1,8 @@
 import Flutterwave from "flutterwave-node-v3";
 import { defaultConfig } from "../config/config";
 import { Request, Response } from 'express';
- const flw = new Flutterwave(defaultConfig.FLW_PUBLIC_KEY, defaultConfig.FLW_SECRET_KEY);
+const flw = new Flutterwave(defaultConfig.FLW_PUBLIC_KEY, defaultConfig.FLW_SECRET_KEY);
+
 
 const getBillsCategories = async (req: Request, res: Response) => {
 
