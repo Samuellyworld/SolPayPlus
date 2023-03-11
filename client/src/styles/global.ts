@@ -66,6 +66,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   }
+  .services {
+    background : url('/assets/bg-2.png');
+  }
   
   html {
     box-sizing: border-box;
