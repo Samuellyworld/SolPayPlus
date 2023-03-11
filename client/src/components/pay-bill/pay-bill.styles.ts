@@ -43,6 +43,7 @@ export const PayBillInnerContainer = styled.div`
 export const PayBillHeader = styled.span`
     font-size: 1.5rem;
     display: block;
+    font-weight : 700;
 
     @media only screen and (max-width: 488px) {
         margin-left: 1rem;

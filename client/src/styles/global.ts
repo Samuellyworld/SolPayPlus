@@ -75,6 +75,11 @@ export const GlobalStyle = createGlobalStyle`
     background : url('/assets/bg-2.png');
     height : 100vh;
   }
+
+  .transactions {
+    background : url('/assets/bg-2.png');
+    height : 100vh;
+  }
   html {
     box-sizing: border-box;
     font-size: 16px;
