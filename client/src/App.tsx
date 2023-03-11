@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import ServicesPage from "./pages/services";
 import PaymentPage from "./pages/payment";
+import TransactionsPage from "./pages/transactions";
 
 // App component
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<LandingPage />} />
         <Route path='/services' element={<ServicesPage/>} />
         <Route path='/payment' element={<PaymentPage />} />
+        <Route path='/transactions' element={<TransactionsPage/>} />
       </Routes>
      </Router>
       );
