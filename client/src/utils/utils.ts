@@ -8,7 +8,10 @@ export const options : OptionsType[] = [
     { value: 'togo', label: 'Togo' },
   ];
 
- export const customStyles : CustomStylesType | any = {
+// airtime options
+export const airtimeOptions : string[] = ["MTN", "Airtel", "9 Mobile", "Glo"]
+
+export const customStyles : CustomStylesType | any = {
     control: (provided: NestedObjectType, state :{isFocused : boolean} ) => ({
       ...provided,
       paddingLeft: '25px', // add left padding to accommodate icon

@@ -68,8 +68,13 @@ export const GlobalStyle = createGlobalStyle`
   }
   .services {
     background : url('/assets/bg-2.png');
+    height : 100vh;
   }
   
+  .payment {
+    background : url('/assets/bg-2.png');
+    height : 100vh;
+  }
   html {
     box-sizing: border-box;
     font-size: 16px;

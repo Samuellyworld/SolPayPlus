@@ -2,10 +2,10 @@
 import { useState } from "react";
 
 // import custom styles
-import { PayBillContainer, PayBillTopRight,
-         PayBillTop, PayBillTopLeft, 
-         PayBillMiniContainer, PayBillBoxesContainer,
-         PayBillBox, PayBillBoxIcon,  PayBillBoxText 
+import { ProductsContainer, ProductsTopRight,
+         ProductsTop, ProductsTopLeft, 
+         ProductsMiniContainer, ProductsBoxesContainer,
+         ProductsBox, ProductsBoxIcon,  ProductsBoxText 
         } from "./products.styles";
 
 // import select;
@@ -18,11 +18,11 @@ const Products = () => {
     const [selectedOption, setSelectedOption] = useState(options[0]);
 
     return (
-        <PayBillContainer>
-         <PayBillMiniContainer>
-            <PayBillTop>
-                <PayBillTopLeft>What bill do you want to pay?</PayBillTopLeft>
-                <PayBillTopRight>   
+        <ProductsContainer>
+         <ProductsMiniContainer>
+            <ProductsTop>
+                <ProductsTopLeft>What bill do you want to pay?</ProductsTopLeft>
+                <ProductsTopRight>   
                 <div className="SelectAndIconCont">
                     <img src="/assets/MapPin.png" className = "map-icon"alt="" />
                     <Select
@@ -32,44 +32,44 @@ const Products = () => {
                         onChange={(e : any) => setSelectedOption(e)}
                         />
                 </div>
-                </PayBillTopRight>
-            </PayBillTop>
+                </ProductsTopRight>
+            </ProductsTop>
 
-            <PayBillBoxesContainer>
-                <PayBillBox notPart = {false}>
+            <ProductsBoxesContainer>
+                <ProductsBox notPart = {false}>
                     <div className="BillImgCont">
-                        <PayBillBoxIcon src = "/assets/DeviceMobileCamera.png" />
+                        <ProductsBoxIcon src = "/assets/DeviceMobileCamera.png" />
                         <img src = "/assets/CellSignalFull.png" className = "PayCellImage"alt = "Cell Images" />
                     </div>
-                    <PayBillBoxText>Airtime</PayBillBoxText>
-                </PayBillBox>
+                    <ProductsBoxText>Airtime</ProductsBoxText>
+                </ProductsBox>
 
-                <PayBillBox notPart = {false}>
-                    <PayBillBoxIcon src = "/assets/DeviceMobileCamera.png" />
-                    <PayBillBoxText>Data Bundles</PayBillBoxText>
-                </PayBillBox>
+                <ProductsBox notPart = {false}>
+                    <ProductsBoxIcon src = "/assets/DeviceMobileCamera.png" />
+                    <ProductsBoxText>Data Bundles</ProductsBoxText>
+                </ProductsBox>
 
-                <PayBillBox notPart = {false}>
-                    <PayBillBoxIcon src = "/assets/Globe.png" />
-                    <PayBillBoxText>Internet</PayBillBoxText>
-                </PayBillBox>
+                <ProductsBox notPart = {false}>
+                    <ProductsBoxIcon src = "/assets/Globe.png" />
+                    <ProductsBoxText>Internet</ProductsBoxText>
+                </ProductsBox>
 
-                <PayBillBox notPart = {false}>
-                    <PayBillBoxIcon src = "/assets/Lightbulb.png" />
-                    <PayBillBoxText>Electricity</PayBillBoxText>
-                </PayBillBox>
+                <ProductsBox notPart = {false}>
+                    <ProductsBoxIcon src = "/assets/Lightbulb.png" />
+                    <ProductsBoxText>Electricity</ProductsBoxText>
+                </ProductsBox>
 
-                <PayBillBox notPart = {false}>
-                    <PayBillBoxIcon src = "/assets/TelevisionSimple.png" />
-                    <PayBillBoxText>Cable TV</PayBillBoxText>
-                </PayBillBox>
+                <ProductsBox notPart = {false}>
+                    <ProductsBoxIcon src = "/assets/TelevisionSimple.png" />
+                    <ProductsBoxText>Cable TV</ProductsBoxText>
+                </ProductsBox>
 
-                <PayBillBox notPart = {true}>
-                    <PayBillBoxText>More to come!</PayBillBoxText>
-                </PayBillBox>
-            </PayBillBoxesContainer>
-        </PayBillMiniContainer>
-    </PayBillContainer>
+                <ProductsBox notPart = {true}>
+                    <ProductsBoxText>More to come!</ProductsBoxText>
+                </ProductsBox>
+            </ProductsBoxesContainer>
+        </ProductsMiniContainer>
+    </ProductsContainer>
     )
 }
 

@@ -15,6 +15,18 @@ export interface NestedObjectType {
     [key: string]: string | Number;
   }
 
+// dropdown Type
+export interface DropdownType {
+    label: string;
+    options: string[];
+    theDefault : string;
+}
+
+// dropdown state
+export type DropdownStateType = [boolean , React.Dispatch<React.SetStateAction<boolean>>]
+export type DropdownSelectType = [string, React.Dispatch<React.SetStateAction<string>>]
+
+// CustomStyles Types
 export interface CustomStylesType {
     control: (provided: NestedObjectType) => {
         paddingLeft: string;

@@ -1,21 +1,24 @@
 //importing styled from styled-components
 import styled from "styled-components";
 
+// props type
 interface Props {
     notPart : boolean
 }
 
-export const PayBillContainer = styled.div`
+// products container styles
+export const ProductsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-family: 'Space Grotesk';
     font-style: normal;
 
     
 `
-export const PayBillMiniContainer = styled.div`
+
+// products mini container styles
+export const ProductsMiniContainer = styled.div`
     width: 45%;
     margin-top: 1rem;
 
@@ -42,7 +45,8 @@ export const PayBillMiniContainer = styled.div`
     }
 `
 
-export const PayBillTop = styled.div`
+// products top styles
+export const ProductsTop = styled.div`
     margin-bottom: 1rem;
     padding : 0 1rem;
 
@@ -52,7 +56,8 @@ export const PayBillTop = styled.div`
     align-items: center;
 `
 
-export const PayBillTopLeft = styled.span`
+// products top left styles
+export const ProductsTopLeft = styled.span`
     display: block;
     font-size: 1.5rem;
     font-weight: 600;
@@ -75,7 +80,8 @@ export const PayBillTopLeft = styled.span`
     
 `
 
-export const PayBillTopRight = styled.div`
+// products top right styles
+export const ProductsTopRight = styled.div`
     .SelectAndIconCont {
         position: relative;
 
@@ -90,7 +96,7 @@ export const PayBillTopRight = styled.div`
     }
     
 `
-export const PayBillBoxesContainer = styled.div`
+export const ProductsBoxesContainer = styled.div`
     display : grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0.3rem;
@@ -103,7 +109,8 @@ export const PayBillBoxesContainer = styled.div`
     }
 `
 
-export const PayBillBox = styled.div<Props>`
+// products box  styles
+export const ProductsBox = styled.div<Props>`
     padding: 3rem 0 2rem 0;
     cursor : pointer;
     background-color: ${Props => Props.notPart ? "transparent" : "#F2F2F2"};
@@ -130,11 +137,13 @@ export const PayBillBox = styled.div<Props>`
     }
 `
 
-export const PayBillBoxIcon = styled.img`
+// products box icon styles
+export const ProductsBoxIcon = styled.img`
     height: 4.5rem;
 `
 
-export const PayBillBoxText = styled.span`
+// products box text styles
+export const ProductsBoxText = styled.span`
     font-weight: 500;
     font-size: 0.9rem;
 `
