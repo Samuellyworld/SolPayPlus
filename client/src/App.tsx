@@ -8,6 +8,7 @@ import {
   Routes,
 } from "react-router-dom";
 import ServicesPage from "./pages/services";
+import PaymentPage from "./pages/payment";
 
 // App component
 function App() {
@@ -16,6 +17,7 @@ function App() {
        <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/services' element={<ServicesPage/>} />
+        <Route path='/payment' element={<PaymentPage />} />
       </Routes>
      </Router>
       );
