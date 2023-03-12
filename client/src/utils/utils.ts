@@ -18,15 +18,17 @@ export const customStyles : CustomStylesType | any = {
       width: '100%',
       border : "1px solid black",
       fontSize : "0.8rem",
+      cursor: "pointer",
       boxShadow: state.isFocused ? 'none' : 'none',
       '&:hover': { borderColor: state.isFocused ? 'none' : 'none' },
     }),
     indicatorSeparator: () => ({ display: 'none' }),
-    dropdownIndicator: (provided: any, state: { isFocused: boolean; }) => ({
+    dropdownIndicator: (provided: any, state: { isFocused: boolean, isHovered : boolean }) => ({
         ...provided,
         color: state.isFocused ? 'black' : '#B2B2B2',
-        transform: state.isFocused ? 'rotate(180deg)' : null,
-        transition: 'transform 0.2s ease-in-out'
+        transform: state.isFocused || state?.isHovered ? 'rotate(180deg)' : null,
+        transition: 'transform 0.2s ease-in-out',
+        cursor: "pointer",
       }),
     singleValue: (provided : NestedObjectType) => ({
       ...provided,
@@ -44,6 +46,7 @@ export const customStyles : CustomStylesType | any = {
       background: state.isSelected ? '#eee' : 'white', // highlight selected option
       color : "black",
       fontSize : "0.8rem",
+      cursor : "pointer"
 
     }),
     optionLabel: (provided : NestedObjectType, state : NestedObjectType) => ({
@@ -57,3 +60,4 @@ export const customStyles : CustomStylesType | any = {
       marginRight: '10px' // add right margin to space out icon from label
     }
   };
+

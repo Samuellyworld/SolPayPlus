@@ -22,7 +22,7 @@ const HeroSection :  () => JSX.Element = () => {
                 </Image>
              </ImagesContainer>
              <HeroImage>
-               <img src="/assets/hero.png" />
+               <img src="/assets/hero.png" alt="hero section" />
              </HeroImage>
            
          </HeroSectionContainer>

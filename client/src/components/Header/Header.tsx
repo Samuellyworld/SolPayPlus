@@ -17,6 +17,8 @@ import { setCurrentUser } from "../../store/user/user.reducer";
 
 // @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { Link } from "react-router-dom";
+import Marquee from "../marquee/marquee";
 
 
 // header component
@@ -50,9 +52,17 @@ const Header : () => JSX.Element = () => {
      // building block
    return (
      <HeaderContainer>
+        {/* <Marquee/> */}
       <LogoContainer>
-        <Logo src="/assets/logo.png" alt="solpayplus icon"/>
-        <LogoHeader>SolPayPlus</LogoHeader>
+        <Link to="/" style={{
+            display : "flex",
+            justifyContent : "center",
+            alignItems : "center",
+            gap: "0.3rem"
+        }}>  
+            <Logo src="/assets/logo.png" alt="solpayplus icon"/>
+            <LogoHeader>SolPayPlus</LogoHeader>
+        </Link>
       </LogoContainer>
       <HeaderConnectContainer>
         <p>
@@ -61,9 +71,9 @@ const Header : () => JSX.Element = () => {
         </p>
         <HeaderConnectWallet
           style={{
-            cursor : !address ? "cursor" : "unset"
+            cursor :  "cursor" 
           }}
-          onClick={!address ? connectWallet : undefined}
+           onClick={!address ? connectWallet : undefined}
           >
             {
             connecting ?

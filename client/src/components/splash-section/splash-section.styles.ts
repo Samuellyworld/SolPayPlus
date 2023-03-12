@@ -75,6 +75,11 @@ export const SplashLeft = styled.div`
         border-radius : 0.25rem;
         margin : 1rem 0rem;
         cursor : pointer;
+        transition: transform 0.2s ease-in-out;
+        
+        :active {
+            transform: translate(0, 5px);
+        }
 
          span {
             font-family: 'Space Grotesk';

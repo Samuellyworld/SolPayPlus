@@ -5,12 +5,14 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "cd server && node dist/server.js",
+    "heroku-postbuild": "cd server && npm install && npm run build",
     "install-server": "cd server && npm install",
     "install-client": "npm install --prefix client",
     "install": "npm run install-client && npm run install-server",
     "server": "cd server && npm run dev",
     "client" : "npm start --prefix client",
-    "start" : "npm run server & npm run client",
+    "dev" : "npm run server & npm run client",
     "deploy" : "npm run build --prefix client && npm run dev --prefix server"
   },
   "repository": {
