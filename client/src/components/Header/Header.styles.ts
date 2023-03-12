@@ -73,10 +73,7 @@ export const HeaderConnectWallet = styled.button`
    border-radius : 0.3rem;
    padding : 0.5rem 1rem;
    cursor : pointer;
-
-   .wallet-adapter-modal-wrapper .wallet-adapter-button {
-      width : 88% !important;
-   }
+   position : relative;
 
    img {
     width : 1.1rem;
@@ -88,4 +85,41 @@ export const HeaderConnectWallet = styled.button`
     font-weight: 500; 
     font-size : 1rem;
    }
+   .dropDownConnect__items {
+		right: 0;
+		position: absolute;
+		flex-direction: column;
+		background: purple;
+		border-radius: 8px;
+		display: none;
+		border: 1px;
+      top : 37.7px;
+
+	}
+   :hover .dropDownConnect__items {
+		display: flex;
+      justify-content : center;
+      margin: auto;
+	  }
+	  .dropDownConnect_item {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 10px 10px;
+		padding-right: 40px;
+		cursor: pointer;
+       gap: 1rem;
+ 
+		p {
+         font-family: 'Space Grotesk';
+         font-style: normal;
+         font-weight: 400; 
+         font-size : 1rem;
+
+			@media (max-width: 576.98px) {
+			font-size: 0.5rem;
+			}
+		}
+	  }
 `
+

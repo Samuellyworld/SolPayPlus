@@ -47,7 +47,7 @@ function App() {
             <Router>
             <Routes>
               <Route path='/' element={<LandingPage />} />
-              <Route path='/services' element={<ServicesPage/>} />
+              <Route path='/app' element={<ServicesPage/>} />
               <Route path='/payment' element={<PaymentPage />} />
               <Route path='/transactions' element={<TransactionsPage/>} />
             </Routes>

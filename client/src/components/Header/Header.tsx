@@ -6,8 +6,11 @@ import { HeaderConnectContainer, HeaderConnectWallet,
          LogoContainer, LogoHeader 
         } from "./header.styles";
 
+// solana and web3 utils
 import { useWalletModal }  from '@solana/wallet-adapter-react-ui';
 import { useWallet } from '@solana/wallet-adapter-react';
+
+// redux 
 import { RootState } from "../../store/store";
 import {useDispatch, useSelector} from 'react-redux';
 import { setCurrentUser } from "../../store/user/user.reducer";
@@ -21,25 +24,30 @@ const Header : () => JSX.Element = () => {
     const dispatch  = useDispatch()
 
      //copying address
-  const [handleCopyAddress, setHandleCopyAddress] = useState(false);
+     const [handleCopyAddress, setHandleCopyAddress] = useState(false);
 
-    const address  = useSelector((state:RootState) => state.currentUser?.currentUser)
+     // address
+     const address  = useSelector(
+          (state:RootState) => state.currentUser?.currentUser
+          )
 
-    const { setVisible } = useWalletModal();
-    console.log(address, "add")
-//    console.log(useWallet())
-const { publicKey, connected, connecting } = useWallet();
-console.log(publicKey?.toString(), 'public')
+    // set visible
+     const { setVisible } = useWalletModal();
 
-    const connectWallet = () => { 
+     // wallet uses
+     const { publicKey, connected, connecting } = useWallet();
+
+     // connect wallet functionalities
+     const connectWallet = () => { 
        setVisible(true);
        dispatch(setCurrentUser(publicKey?.toString()) )
-    }
-
+     }
+    // use effect
     useEffect(() => {
         dispatch(setCurrentUser(publicKey?.toString()) )
-    }, [connected, dispatch])
+     }, [connected, dispatch, publicKey])
 
+     // building block
    return (
      <HeaderContainer>
       <LogoContainer>
@@ -53,9 +61,9 @@ console.log(publicKey?.toString(), 'public')
         </p>
         <HeaderConnectWallet
           style={{
-            cursor : address ? "unset" : "cursor"
+            cursor : !address ? "cursor" : "unset"
           }}
-          onClick={!connected ? connectWallet : undefined}
+          onClick={!address ? connectWallet : undefined}
           >
             {
             connecting ?
@@ -66,7 +74,6 @@ console.log(publicKey?.toString(), 'public')
 				{address?.substring(38,42)} 
               </span>
               :
-              !address && !connecting && !connected  &&
               <span> Connect Wallet</span>
             }
             {
@@ -76,30 +83,48 @@ console.log(publicKey?.toString(), 'public')
                  alt="connect wallet"
                 /> 
                 :
-                <CopyToClipboard text={address}>
+                 <CopyToClipboard text={address}>
                  {
                     !handleCopyAddress ? 
                     <img 
-                    src="/assets/copy.svg"
-                    alt="wallet copy"
-                    style ={{
-                      cursor : "pointer"
-                    }}
-                    onClick={
-                      () => {
-                      setHandleCopyAddress(!handleCopyAddress)
-                      setTimeout(() => {
-                        setHandleCopyAddress(false)
-                      }, 800);
-                      }
-                   }
-                   /> : 
-                   <img src="/assets/copy.png" />
+                        src="/assets/copy.svg"
+                        alt="wallet copy"
+                        style ={{
+                        cursor : "pointer"
+                        }}
+                        onClick={() => {
+                         setHandleCopyAddress(!handleCopyAddress)
+                         setTimeout(() => {
+                            setHandleCopyAddress(false)
+                        }, 800);}} /> 
+                      : 
+                   <img src="/assets/copy.png" alt="copy"/>
                  }
-              
-               </CopyToClipboard>
-            }
-           
+                 </CopyToClipboard>
+                }
+                {
+                  address && 
+                      <div className='dropDownConnect__items'>
+                        <div className='dropDownConnect_item'
+                         onClick={ () => {
+                         localStorage.clear()
+                         dispatch(setCurrentUser(""))
+                          }} 
+                         style={{
+                            background: 'rgba(170, 74, 68, 0.6)',
+                            borderRadius: "8px"
+                         }}>
+					  <div className='dropDownConnect_img'>
+                       <img 
+                         src="/assets/cancel.png" 
+                         alt='disconnect logo' 
+                         style={{width : "2rem"}}
+                        />
+					   </div>
+				       <p> Disconnect</p>
+				   </div>
+			     </div>  
+              }
         </HeaderConnectWallet>
       </HeaderConnectContainer>
      </HeaderContainer>
