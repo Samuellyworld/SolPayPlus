@@ -123,6 +123,11 @@ export const ProductsBox = styled.div<Props>`
     flex-direction: column;
     gap: 1rem;
 
+    .PayCellImage {
+        height : 3rem;
+        width : 3rem;
+    }
+
     .BillImgCont {
         position: relative;
         width: 100%;
@@ -132,10 +137,6 @@ export const ProductsBox = styled.div<Props>`
         align-items: center;
         justify-content: center;
 
-        .PayCellImage {
-            position: absolute;
-            height : 1.2rem;
-        }
     }
 `
 

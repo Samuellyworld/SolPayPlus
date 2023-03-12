@@ -12,7 +12,7 @@ import { ProductsContainer, ProductsTopRight,
 import Select from 'react-select';
 
 // import utils objects
-import { customStyles, options } from "../../utils/utils";
+import { customStyles, options, services } from "../../utils/utils";
 
 const Products = () => {
     const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -36,34 +36,25 @@ const Products = () => {
             </ProductsTop>
 
             <ProductsBoxesContainer>
-                <ProductsBox notPart = {false}>
+                {/* /* <ProductsBox notPart = {false}>
                     <div className="BillImgCont">
                         <ProductsBoxIcon src = "/assets/DeviceMobileCamera.png" />
                         <img src = "/assets/CellSignalFull.png" className = "PayCellImage"alt = "Cell Images" />
                     </div>
                     <ProductsBoxText>Airtime</ProductsBoxText>
-                </ProductsBox>
+                </ProductsBox> */}
 
-                <ProductsBox notPart = {false}>
-                    <ProductsBoxIcon src = "/assets/DeviceMobileCamera.png" />
-                    <ProductsBoxText>Data Bundles</ProductsBoxText>
-                </ProductsBox>
-
-                <ProductsBox notPart = {false}>
-                    <ProductsBoxIcon src = "/assets/Globe.png" />
-                    <ProductsBoxText>Internet</ProductsBoxText>
-                </ProductsBox>
-
-                <ProductsBox notPart = {false}>
-                    <ProductsBoxIcon src = "/assets/Lightbulb.png" />
-                    <ProductsBoxText>Electricity</ProductsBoxText>
-                </ProductsBox>
-
-                <ProductsBox notPart = {false}>
-                    <ProductsBoxIcon src = "/assets/TelevisionSimple.png" />
-                    <ProductsBoxText>Cable TV</ProductsBoxText>
-                </ProductsBox>
-
+             
+                 {
+                    services?.map((service, i) => (
+                        <ProductsBox notPart = {false} key={i}>
+                         <ProductsBoxIcon
+                           src ={service?.image} 
+                           className={i === 0 ? "PayCellImage " : ""} />
+                         <ProductsBoxText>{service?.name}</ProductsBoxText>
+                       </ProductsBox>
+                    ))
+                 }
                 <ProductsBox notPart = {true}>
                     <ProductsBoxText>More to come!</ProductsBoxText>
                 </ProductsBox>

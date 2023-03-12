@@ -1,5 +1,5 @@
 // importing relevant types
-import { CustomStylesType, NestedObjectType, OptionsType } from "../types/types";
+import { CustomStylesType, NestedObjectType, OptionsType, ServiceType } from "../types/types";
 
 // options
 export const options : OptionsType[] = [
@@ -61,3 +61,27 @@ export const customStyles : CustomStylesType | any = {
     }
   };
 
+// services
+
+export const services : ServiceType[] = [
+    {
+        name : "Airtime",
+        image : "/assets/CellSignalFull.png" 
+    },
+   {
+      name : "Data Bundles",
+      image : "/assets/DeviceMobileCamera.png"
+    },
+   {
+     name : "Internet",
+     image : "/assets/Globe.png"
+   }, 
+   {
+     name : "Electricity",
+     image : "/assets/Lightbulb.png"
+   },
+   {
+     name : "Cable TV",
+     image : "/assets/TelevisionSimple.png"
+    }
+]
