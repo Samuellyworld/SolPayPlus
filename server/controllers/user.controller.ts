@@ -60,6 +60,7 @@ const { SystemProgram } = web3;
 					found=true;
 					{
 						res.status(200).json({
+							message:true,
 							data:{
 								//@ts-ignore
 						wallet:user.admin.toString(),
@@ -75,7 +76,7 @@ const { SystemProgram } = web3;
 			})
 			if(!found){
 				res.status(404).json({
-					message:"user not found"
+					message:false
 				})
 			}
 		})
