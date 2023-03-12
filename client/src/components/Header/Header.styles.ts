@@ -72,6 +72,11 @@ export const HeaderConnectWallet = styled.button`
    background : #ffffff;
    border-radius : 0.3rem;
    padding : 0.5rem 1rem;
+   cursor : pointer;
+
+   .wallet-adapter-modal-wrapper .wallet-adapter-button {
+      width : 88% !important;
+   }
 
    img {
     width : 1.1rem;
