@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { HeaderConnectContainer, HeaderConnectWallet,
          HeaderContainer, Logo, 
          LogoContainer, LogoHeader 
-        } from "./header.styles";
+        } from "./Header.styles";
 
 // solana and web3 utils
 import { useWalletModal }  from '@solana/wallet-adapter-react-ui';

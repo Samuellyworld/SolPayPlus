@@ -1,6 +1,6 @@
 // import components that make up the payment page
 
-import Header from "../components/header/header";
+import Header from "../components/Header/Header";
 import PayBill from "../components/pay-bill/pay-bill";
 
  const PaymentPage = () => {
