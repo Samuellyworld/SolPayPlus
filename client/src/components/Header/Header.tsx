@@ -1,8 +1,45 @@
+// react module
+import { useEffect, useState } from "react";
 //import relevant modules
-import { HeaderConnectContainer, HeaderConnectWallet, HeaderContainer, Logo, LogoContainer, LogoHeader } from "./header.styles";
+import { HeaderConnectContainer, HeaderConnectWallet,
+         HeaderContainer, Logo, 
+         LogoContainer, LogoHeader 
+        } from "./header.styles";
+
+import { useWalletModal }  from '@solana/wallet-adapter-react-ui';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { RootState } from "../../store/store";
+import {useDispatch, useSelector} from 'react-redux';
+import { setCurrentUser } from "../../store/user/user.reducer";
+
+// @ts-ignore
+import { CopyToClipboard } from "react-copy-to-clipboard";
+
 
 // header component
 const Header : () => JSX.Element = () => {
+    const dispatch  = useDispatch()
+
+     //copying address
+  const [handleCopyAddress, setHandleCopyAddress] = useState(false);
+
+    const address  = useSelector((state:RootState) => state.currentUser?.currentUser)
+
+    const { setVisible } = useWalletModal();
+    console.log(address, "add")
+//    console.log(useWallet())
+const { publicKey, connected, connecting } = useWallet();
+console.log(publicKey?.toString(), 'public')
+
+    const connectWallet = () => { 
+       setVisible(true);
+       dispatch(setCurrentUser(publicKey?.toString()) )
+    }
+
+    useEffect(() => {
+        dispatch(setCurrentUser(publicKey?.toString()) )
+    }, [connected, dispatch])
+
    return (
      <HeaderContainer>
       <LogoContainer>
@@ -14,9 +51,55 @@ const Header : () => JSX.Element = () => {
           <img src="/assets/Gift.png" alt=""/>
           <span>Rewards</span>
         </p>
-        <HeaderConnectWallet>
-            <span> Connect Wallet</span>
-            <img src="/assets/Wallet.png" alt="connect wallet" />
+        <HeaderConnectWallet
+          style={{
+            cursor : address ? "unset" : "cursor"
+          }}
+          onClick={!connected ? connectWallet : undefined}
+          >
+            {
+            connecting ?
+            <span>Waiting ...</span> :
+            address && !connecting && connected  ?
+              <span>
+                {address?.substring(0,5)}...
+				{address?.substring(38,42)} 
+              </span>
+              :
+              !address && !connecting && !connected  &&
+              <span> Connect Wallet</span>
+            }
+            {
+                !address ?  
+                <img 
+                 src="/assets/Wallet.png" 
+                 alt="connect wallet"
+                /> 
+                :
+                <CopyToClipboard text={address}>
+                 {
+                    !handleCopyAddress ? 
+                    <img 
+                    src="/assets/copy.svg"
+                    alt="wallet copy"
+                    style ={{
+                      cursor : "pointer"
+                    }}
+                    onClick={
+                      () => {
+                      setHandleCopyAddress(!handleCopyAddress)
+                      setTimeout(() => {
+                        setHandleCopyAddress(false)
+                      }, 800);
+                      }
+                   }
+                   /> : 
+                   <img src="/assets/copy.png" />
+                 }
+              
+               </CopyToClipboard>
+            }
+           
         </HeaderConnectWallet>
       </HeaderConnectContainer>
      </HeaderContainer>
@@ -24,3 +107,4 @@ const Header : () => JSX.Element = () => {
 }
 
 export default Header;
+

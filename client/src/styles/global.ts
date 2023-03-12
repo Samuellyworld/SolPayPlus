@@ -80,6 +80,12 @@ export const GlobalStyle = createGlobalStyle`
     background : url('/assets/bg-2.png');
     height : 100vh;
   }
+
+  .wallet-adapter-modal-wrapper
+   .wallet-adapter-button {
+    width : 88% !important;
+    }
+
   html {
     box-sizing: border-box;
     font-size: 16px;
