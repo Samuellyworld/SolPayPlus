@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import { paymentRouter } from './routes/payment.router';
 import { rateRouter } from './routes/rate.router';
 import { billRouter } from './routes/bill.router';
+import { userRouter } from './routes/user.router';
 
 // start an express server
 export const app = express();
@@ -28,5 +29,7 @@ app.use('/payment', paymentRouter);
 app.use('/rate', rateRouter);
 
 app.use('/bill', billRouter);
+
+app.use('/user', userRouter);
 
 

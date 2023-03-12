@@ -77,7 +77,10 @@ const App = () => {
 					 pubkey: sppuser.pubkey,
 				})
 			)
-		).then((sppusers) => setSppusers(sppusers));
+		).then((sppusers) => {
+			setSppusers(sppusers);
+		    console.log("users ",sppusers)
+		})
 	};
 	const createSppuser = async () => {
 		try {
