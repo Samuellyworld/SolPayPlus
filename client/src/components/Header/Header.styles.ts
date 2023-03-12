@@ -115,10 +115,7 @@ export const HeaderConnectWallet = styled.button`
          font-style: normal;
          font-weight: 400; 
          font-size : 1rem;
-
-			@media (max-width: 576.98px) {
-			font-size: 0.5rem;
-			}
+         color : whitesmoke;
 		}
 	  }
 `

@@ -82,9 +82,11 @@ export const ProductsTopLeft = styled.span`
 
 // products top right styles
 export const ProductsTopRight = styled.div`
+
+        
     .SelectAndIconCont {
         position: relative;
-
+        
         .map-icon {
             position : absolute;
             height: 20px;
