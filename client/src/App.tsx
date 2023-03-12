@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 // import pages that makes up the app;
-import LandingPage from "./pages/landing";
+import LandingPage from "./pages/Landing";
 import ServicesPage from "./pages/services";
 import PaymentPage from "./pages/payment";
 import TransactionsPage from "./pages/transactions";
