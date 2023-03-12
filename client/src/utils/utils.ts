@@ -66,7 +66,7 @@ export const customStyles : CustomStylesType | any = {
 export const services : ServiceType[] = [
     {
         name : "Airtime",
-        image : "/assets/CellSignalFull.png" 
+        image : "/assets/airtime.png" 
     },
    {
       name : "Data Bundles",
