@@ -50,7 +50,8 @@ const Products = () => {
                         <ProductsBox notPart = {false} key={i}>
                          <ProductsBoxIcon
                            src ={service?.image} 
-                           className={i === 0 ? "PayCellImage " : ""} />
+                           
+                           />
                          <ProductsBoxText>{service?.name}</ProductsBoxText>
                        </ProductsBox>
                     ))
