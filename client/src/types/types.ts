@@ -22,6 +22,13 @@ export interface DropdownType {
     theDefault : string;
 }
 
+// service Type
+export interface ServiceType {
+    name : string,
+    image : string
+}
+
+
 // dropdown state
 export type DropdownStateType = [boolean , React.Dispatch<React.SetStateAction<boolean>>]
 export type DropdownSelectType = [string, React.Dispatch<React.SetStateAction<string>>]
