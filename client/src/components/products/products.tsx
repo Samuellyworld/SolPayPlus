@@ -13,6 +13,7 @@ import Select from 'react-select';
 
 // import utils objects
 import { customStyles, options, services } from "../../utils/utils";
+import { Link } from "react-router-dom";
 
 const Products = () => {
     const [selectedOption, setSelectedOption] = useState(options[0]);
@@ -47,13 +48,14 @@ const Products = () => {
              
                  {
                     services?.map((service, i) => (
-                        <ProductsBox notPart = {false} key={i}>
-                         <ProductsBoxIcon
+                        <Link to ={`/payment/${service?.name}`}>
+                          <ProductsBox notPart = {false} key={i}>
+                          <ProductsBoxIcon
                            src ={service?.image} 
-                           
                            />
-                         <ProductsBoxText>{service?.name}</ProductsBoxText>
-                       </ProductsBox>
+                          <ProductsBoxText>{service?.name}</ProductsBoxText>
+                          </ProductsBox>
+                        </Link>
                     ))
                  }
                 <ProductsBox notPart = {true}>

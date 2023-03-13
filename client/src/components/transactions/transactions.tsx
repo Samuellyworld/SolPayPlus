@@ -7,19 +7,26 @@ import { TransactionBoxContainer, TransactionBoxTwo,
          HeaderTransaction, ListTransctionContainer, TransactionItem 
         } from "./transactions.styles";
 
+        import {useSelector} from 'react-redux';
+import { RootState } from "../../store/store";
 
 const Transactions = () => {
+    const rewards = useSelector((state: RootState) => 
+        state.currentUser?.rewards
+    )
+
+    console.log(rewards?.data);
   return (
     <TransactionContainer>
         <TransactionInnerContainer>
             <TransactionBoxContainer>
                 <TransactionBoxOne>
                     <CashBalanceText>Cash Back Balance</CashBalanceText>
-                    <CashNumberText>N9,000</CashNumberText>
+                    <CashNumberText>N{rewards?.data?.balance}</CashNumberText>
                 </TransactionBoxOne>
                 <TransactionBoxTwo>
                     <CashBalanceText>Total Rewards</CashBalanceText>
-                    <CashNumberText>N14,000</CashNumberText>
+                    <CashNumberText>N{rewards?.data?.total}</CashNumberText>
                 </TransactionBoxTwo>
             </TransactionBoxContainer>
 

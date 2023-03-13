@@ -44,14 +44,16 @@ function App() {
       <ConnectionProvider endpoint={endpoint}>
         <WalletProvider wallets={wallets} autoConnect>
           <WalletModalProvider>
+
             <Router>
             <Routes>
               <Route path='/' element={<LandingPage />} />
               <Route path='/app' element={<ServicesPage/>} />
-              <Route path='/payment' element={<PaymentPage />} />
+              <Route path='/payment/:serviceName' element={<PaymentPage />} />
               <Route path='/transactions' element={<TransactionsPage/>} />
             </Routes>
            </Router>
+
           </WalletModalProvider>
        </WalletProvider>
       </ConnectionProvider>
