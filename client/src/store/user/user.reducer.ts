@@ -6,7 +6,8 @@ import { USER_ACTION_TYPES } from './user.action';
 // initial state
 const initialState : CurrentType = {
     currentUser : "", 
-    rewards : null
+    rewards : null,
+    bills : null
 }
 
 // setting user actions;
@@ -19,12 +20,15 @@ export const userSlice = createSlice({
      },
      setRewards : (state: any , action : PayloadAction<any>) => {
         state.rewards = action.payload
+     },
+     setBills : (state: any , action : PayloadAction<any>) => {
+        state.bills = action.payload
      }
     }
 })
 
 // dispatch
-export const {setCurrentUser, setRewards } = userSlice.actions
+export const {setCurrentUser, setRewards, setBills } = userSlice.actions
 
 //reducer
 export default userSlice.reducer;
