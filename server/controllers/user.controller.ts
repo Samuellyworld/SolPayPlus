@@ -75,7 +75,7 @@ const { SystemProgram } = web3;
 				}
 			})
 			if(!found){
-				res.status(400).json({
+				res.status(200).json({
 					message:false
 				})
 			}
