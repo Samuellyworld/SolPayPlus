@@ -1,6 +1,6 @@
 // importing relevant modules
 import express from 'express';
-import {getBillsCategories, getStatus, paymentAgencies, amountToBePaid, createBill, validateBill, getBillsPayment} from '../controllers/bill.controller';
+import {getBillsCategories, getBillsCategory, getStatus, paymentAgencies, amountToBePaid, createBill, validateBill, getBillsPayment} from '../controllers/bill.controller';
 
 // creating bill route
 export const billRouter = express.Router();
@@ -14,6 +14,9 @@ billRouter.post('/get-bills', getBillsPayment);
 
 // getting Bill categories
 billRouter.get('/categories', getBillsCategories );
+
+// getting Bill category for country
+billRouter.post('/category', getBillsCategory );
 
 // getting Bill payment agencies
 billRouter.get('/payment-agencies', paymentAgencies );
