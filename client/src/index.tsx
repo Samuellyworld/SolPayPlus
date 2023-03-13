@@ -10,6 +10,7 @@ import { GlobalStyle } from './styles/global';
 import { store, Persistor } from './store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import Popup from './components/modal/modal';
 
 // root element;
 const root = ReactDOM.createRoot(
@@ -20,6 +21,7 @@ root.render(
     <GlobalStyle />
     <Provider store={store}>
      <PersistGate loading={null} persistor={Persistor}>
+     <Popup />
       <App />
     </PersistGate>
      </Provider>

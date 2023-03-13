@@ -22,21 +22,28 @@ import Dropdown from "../dropdown/dropdown";
 import { airtimeOptions } from "../../utils/utils";
 import { DropdownSelectType } from "../../types/types";
 
+// get service name
+import { useParams } from "react-router-dom";
+
 //JSX Component
 const PayBill = () => {
+    // use params to get services
+    const {serviceName} = useParams()
+
     // use state initial values
     const [phone, setPhone] : DropdownSelectType = useState("");
   return (
     <PayBillContainer>
         <PayBillInnerContainer>
-            <PayBillHeader>Airtime Recharge</PayBillHeader>
+            <PayBillHeader>{
+             serviceName === "Airtime" ?`${serviceName} Recharge` : serviceName }</PayBillHeader>
 
             <PayBillForm>
                 <PayBillGroup>
                     <PayBillLabel>Phone Number</PayBillLabel>
                     <PhoneInput
-                        country='de'
-                        regions={'europe'}
+                        country='ng'
+                        regions={'africa'}
                         value={phone}
                         onChange={phone => setPhone(phone)}
                         inputStyle={{

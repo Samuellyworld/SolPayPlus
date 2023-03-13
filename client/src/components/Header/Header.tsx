@@ -13,18 +13,30 @@ import { useWallet } from '@solana/wallet-adapter-react';
 // redux 
 import { RootState } from "../../store/store";
 import {useDispatch, useSelector} from 'react-redux';
-import { setCurrentUser } from "../../store/user/user.reducer";
+import { setCurrentUser, setRewards } from "../../store/user/user.reducer";
 
 // @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
 import Marquee from "../marquee/marquee";
 
+// import relevant smart contract interact module
+import { getSppusers, sortUser } from "../../utils/interact";
+import { alert, close } from "../../store/alert/alert.modal.reducer";
+
+// use navigate from react-router dom
+import { useNavigate } from "react-router-dom";
+import { getRewards } from "../../utils/requests";
+
+
 
 // header component
 const Header : () => JSX.Element = () => {
     const dispatch  = useDispatch()
 
+    const Navigate = useNavigate()
+
+    const [usersList, setUsers] = useState([])
      //copying address
      const [handleCopyAddress, setHandleCopyAddress] = useState(false);
 
@@ -40,15 +52,35 @@ const Header : () => JSX.Element = () => {
      const { publicKey, connected, connecting } = useWallet();
 
      // connect wallet functionalities
-     const connectWallet = () => { 
+     const connectWallet = async () => { 
        setVisible(true);
-       dispatch(setCurrentUser(publicKey?.toString()) )
+       dispatch(setCurrentUser(publicKey?.toString()))  ;    
      }
     // use effect
     useEffect(() => {
-        dispatch(setCurrentUser(publicKey?.toString()) )
+        dispatch(setCurrentUser(publicKey?.toString()));
      }, [connected, dispatch, publicKey])
 
+    //  useEffect(() => {
+    //    const rewards = getRewards(address);
+    //    dispatch(setRewards(rewards));
+    //    console.log(rewards)
+    //  }, [address])
+
+    // get rewards;
+    const rewardsLink =  async () => {
+       if(!address) {
+        dispatch(alert('Connect Your Wallet ⛔️'));
+       return setTimeout(() => {
+          dispatch(close(""));
+        }, 700);
+       }  
+       const rewards = await getRewards(address, dispatch, Navigate);
+      //  console.log(rewards)
+      //  dispatch(setRewards(rewards));
+      // Navigate('/transactions');
+    }
+     
      // building block
    return (
      <HeaderContainer>
@@ -65,7 +97,7 @@ const Header : () => JSX.Element = () => {
         </Link>
       </LogoContainer>
       <HeaderConnectContainer>
-        <p>
+        <p onClick={rewardsLink}>
           <img src="/assets/Gift.png" alt=""/>
           <span>Rewards</span>
         </p>

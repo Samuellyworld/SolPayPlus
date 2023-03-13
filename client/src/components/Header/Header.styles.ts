@@ -48,7 +48,7 @@ export const HeaderConnectContainer = styled.div`
     justify-content : center;
     align-items : center;
     gap : 0.4rem;
-
+    cursor: pointer;
     span {
         font-family: 'Space Grotesk';
         font-style: normal;
@@ -119,4 +119,3 @@ export const HeaderConnectWallet = styled.button`
 		}
 	  }
 `
-

@@ -1,5 +1,6 @@
 // import custom types from redux persist module;
 import { WebStorage } from "redux-persist";
+import { ObjectType } from "typescript";
 
 // persist config types
 export interface PersistConfigType {
@@ -15,4 +16,5 @@ export interface UserActionType {
 // current user Type
 export interface CurrentType {
     currentUser : null | string 
+    rewards : null | ObjectType | any
 }

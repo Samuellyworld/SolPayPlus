@@ -28,7 +28,12 @@ export interface ServiceType {
     image : string
 }
 
-
+// pop up Type
+export interface PopUpType {
+    children : string,
+    visible : boolean,
+    
+}
 // dropdown state
 export type DropdownStateType = [boolean , React.Dispatch<React.SetStateAction<boolean>>]
 export type DropdownSelectType = [string, React.Dispatch<React.SetStateAction<string>>]
