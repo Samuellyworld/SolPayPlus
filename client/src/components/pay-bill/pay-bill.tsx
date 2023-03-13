@@ -22,21 +22,39 @@ import Dropdown from "../dropdown/dropdown";
 import { airtimeOptions } from "../../utils/utils";
 import { DropdownSelectType } from "../../types/types";
 
+// get service name
+import { useLocation } from "react-router-dom";
+
+// react-redux
+import {useSelector} from 'react-redux'
+import { RootState } from "../../store/store";
+
 //JSX Component
 const PayBill = () => {
+    // use params to get services
+    const location = useLocation()
+    const category = location.state
+
+    // selector
+    const bills = useSelector((state: RootState) => state?.currentUser?.bills)
+   console.log(bills, 'bills')
+
+   const billsName = bills?.map((bill : any) => bill.name)
+
     // use state initial values
     const [phone, setPhone] : DropdownSelectType = useState("");
   return (
     <PayBillContainer>
         <PayBillInnerContainer>
-            <PayBillHeader>Airtime Recharge</PayBillHeader>
+            <PayBillHeader>{
+             `${category} Recharge`}</PayBillHeader>
 
             <PayBillForm>
                 <PayBillGroup>
                     <PayBillLabel>Phone Number</PayBillLabel>
                     <PhoneInput
-                        country='de'
-                        regions={'europe'}
+                        country={bills[0]?.country.toLowerCase()}
+                        regions={'africa'}
                         value={phone}
                         onChange={phone => setPhone(phone)}
                         inputStyle={{
@@ -74,7 +92,7 @@ const PayBill = () => {
 
                 <PayBillGroup>
                     <PayBillLabel>Network Provider</PayBillLabel>
-                    <Dropdown theDefault = "MTN" label = ""options = {airtimeOptions} />
+                    <Dropdown theDefault = {billsName[0]} label = ""options = {billsName} />
                 </PayBillGroup>
 
                 <PayBillGroup>

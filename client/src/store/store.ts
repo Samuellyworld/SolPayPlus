@@ -15,6 +15,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import { PersistConfigType } from "../types/store.types";
 import userReducer from "./user/user.reducer";
+import alertModalReducer from "./alert/alert.modal.reducer";
 
 
 
@@ -29,6 +30,7 @@ const userReduce = persistReducer(presistConfig, userReducer)
 export const store = configureStore({
   reducer: {
     currentUser: userReduce,
+    alert: alertModalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
