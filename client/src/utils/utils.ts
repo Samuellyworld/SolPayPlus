@@ -3,9 +3,11 @@ import { CustomStylesType, NestedObjectType, OptionsType, ServiceType } from "..
 
 // options
 export const options : OptionsType[] = [
-    { value: 'nigeria', label: 'Nigeria' },
-    { value: 'ghana', label: 'Ghana' },
-    { value: 'togo', label: 'Togo' },
+    { value: 'NG', label: 'Nigeria' },
+    { value: 'GH', label: 'Ghana' },
+    { value: 'UG', label: 'Uganda' },
+    { value: 'ZM', label: 'Zimbabwe' },
+    { value: 'KE', label: 'Kenya' },
   ];
 
 // airtime options
@@ -62,26 +64,31 @@ export const customStyles : CustomStylesType | any = {
   };
 
 // services
-
 export const services : ServiceType[] = [
     {
         name : "Airtime",
-        image : "/assets/airtime.png" 
+        image : "/assets/airtime.png" ,
+        category : "airtime"
     },
-   {
+    {
       name : "Data Bundles",
-      image : "/assets/DeviceMobileCamera.png"
+      image : "/assets/DeviceMobileCamera.png",
+      category : "data"
     },
-   {
+    {
      name : "Internet",
-     image : "/assets/Globe.png"
-   }, 
-   {
+     image : "/assets/Globe.png",
+    category : "internet"
+    }, 
+    {
      name : "Electricity",
-     image : "/assets/Lightbulb.png"
-   },
-   {
+     image : "/assets/Lightbulb.png",
+     category : "electricity"
+    },
+    {
      name : "Cable TV",
-     image : "/assets/TelevisionSimple.png"
+     image : "/assets/TelevisionSimple.png",
+     category : "cable"
     }
-]
+  ]
+

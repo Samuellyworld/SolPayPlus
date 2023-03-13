@@ -17,4 +17,5 @@ export interface UserActionType {
 export interface CurrentType {
     currentUser : null | string 
     rewards : null | ObjectType | any
+    bills : null | ObjectType | any
 }

@@ -44,7 +44,8 @@ export const PayBillHeader = styled.span`
     font-size: 1.5rem;
     display: block;
     font-weight : 700;
-
+    text-transform : capitalize;
+    margin-left : 30px;
     @media only screen and (max-width: 488px) {
         margin-left: 1rem;
     }

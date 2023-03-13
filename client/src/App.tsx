@@ -24,6 +24,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
 
+
 // App component
 function App() {
 
@@ -49,7 +50,7 @@ function App() {
             <Routes>
               <Route path='/' element={<LandingPage />} />
               <Route path='/app' element={<ServicesPage/>} />
-              <Route path='/payment/:serviceName' element={<PaymentPage />} />
+              <Route path='/payment' element={<PaymentPage />} />
               <Route path='/transactions' element={<TransactionsPage/>} />
             </Routes>
            </Router>
