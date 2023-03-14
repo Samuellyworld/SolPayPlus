@@ -38,28 +38,27 @@ export const HeaderConnectContainer = styled.div`
   display: flex;
   gap: 2rem;
   margin: 0rem 5rem 0rem 0rem;
+  @media only screen and (max-width: 768px) {
+    gap: 0.4rem;
+  }
 
-   @media screen and (max-width: 1100px) {
-     margin : 0rem 1rem 0rem 0rem; 
-   }
-   p {
-    display : flex;
-    justify-content : center;
-    align-items : center;
-    gap : 0.4rem;
+  @media screen and (max-width: 1100px) {
+    margin: 0rem 1rem 0rem 0rem;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
     cursor: pointer;
     span {
-        font-family: 'Space Grotesk';
-        font-style: normal;
-        font-weight: 500; 
-        font-size : 1rem;
-     }
-     img {
-        width : 1.5rem;
-     }
-
-    @media only screen and (max-width: 768px) {
-      display: none;
+      font-family: "Space Grotesk";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    img {
+      width: 1.5rem;
     }
 
     span {
@@ -67,6 +66,9 @@ export const HeaderConnectContainer = styled.div`
       font-style: normal;
       font-weight: 500;
       font-size: 1rem;
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
     }
     img {
       width: 1.5rem;
@@ -93,40 +95,39 @@ export const HeaderConnectWallet = styled.button`
   span {
     font-family: "Space Grotesk";
     font-style: normal;
-    font-weight: 500; 
-    font-size : 1rem;
-   }
-   .dropDownConnect__items {
-		right: 0;
-		position: absolute;
-		flex-direction: column;
-		background: purple;
-		border-radius: 8px;
-		display: none;
-		border: 1px;
-      top : 37.7px;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  .dropDownConnect__items {
+    right: 0;
+    position: absolute;
+    flex-direction: column;
+    background: purple;
+    border-radius: 8px;
+    display: none;
+    border: 1px;
+    top: 37.7px;
+  }
+  :hover .dropDownConnect__items {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  .dropDownConnect_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 10px;
+    padding-right: 40px;
+    cursor: pointer;
+    gap: 1rem;
 
-	}
-   :hover .dropDownConnect__items {
-		display: flex;
-      justify-content : center;
-      margin: auto;
-	  }
-	  .dropDownConnect_item {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		padding: 10px 10px;
-		padding-right: 40px;
-		cursor: pointer;
-       gap: 1rem;
- 
-		p {
-         font-family: 'Space Grotesk';
-         font-style: normal;
-         font-weight: 400; 
-         font-size : 1rem;
-         color : whitesmoke;
-		}
-	  }
-`
+    p {
+      font-family: "Space Grotesk";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1rem;
+      color: whitesmoke;
+    }
+  }
+`;
