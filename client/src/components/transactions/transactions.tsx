@@ -38,26 +38,16 @@ const Transactions = () => {
                     <HeaderTransaction>Category</HeaderTransaction>
                     <HeaderTransaction>Amount (N)</HeaderTransaction>
                 </ListTransctionSubHeaderContainer>
+                 { rewards?.data.tx_list?.map((txn: any) => (
+                       <ListTransctionContainer>
+                       <TransactionItem>{txn.tx?.substring(0,4)}...{txn.tx?.substring(12,17)}</TransactionItem>
+                       <TransactionItem>Airtime</TransactionItem>
+                       <TransactionItem>₦50</TransactionItem>
+                   </ListTransctionContainer>
+                 )
+                 )}
 
-                <ListTransctionContainer>
-                    <TransactionItem>ixIttn...489</TransactionItem>
-                    <TransactionItem>Airtime</TransactionItem>
-                    <TransactionItem>N5000</TransactionItem>
-                </ListTransctionContainer>
-
-                <ListTransctionContainer>
-                    <TransactionItem>ixIttn...489</TransactionItem>
-                    <TransactionItem>Airtime</TransactionItem>
-                    <TransactionItem>N5000</TransactionItem>
-                </ListTransctionContainer>
-
-                <ListTransctionContainer>
-                    <TransactionItem>ixIttn...489</TransactionItem>
-                    <TransactionItem>Airtime</TransactionItem>
-                    <TransactionItem>N5000</TransactionItem>
-                </ListTransctionContainer>
             </DoneTransactions>
-
 
 
         </TransactionInnerContainer>

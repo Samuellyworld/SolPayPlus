@@ -4,7 +4,7 @@ import ABI from './ABI.json'
 import axios from 'axios';
 // setting dispatch 
 import { setBills, setRewards } from '../store/user/user.reducer';
-import { alert, bottomAlert, close } from '../store/alert/alert.modal.reducer';
+import { addCashBack, alert, bottomAlert, close } from '../store/alert/alert.modal.reducer';
 import {  AnyAction } from "redux"
 
 // solana module
@@ -215,8 +215,10 @@ export const getRewards = async (walletAddress : string| null, dispatch: any, Na
                     if (category === "electricity") {
                      console.log(response?.data?.data?.token)
                         dispatch(bottomAlert(response?.data?.data?.token))
+                        dispatch(addCashBack(reference?.toString()))
                     } else {
-                        return dispatch(alert(`${category} Paid ✅`));
+                        dispatch(alert(`${category} Paid ✅`));
+                        dispatch(addCashBack(reference?.toString()))
                     }
                  
                 }

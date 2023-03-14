@@ -1,38 +1,99 @@
-## sol-pay-bill 
-sol-pay allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.
+## SolPayPLus
 
+[SolPayPLus](https://solpayplus.com.ng/) allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.
+![image](https://i.postimg.cc/VkkVqwDt/Pay-Bills-Graphics.jpg)
 
-### Backend API Documentation
-https://documenter.getpostman.com/view/9070802/2s93JnU6dp
+## 🎉 About.
+It is estimated that 22 million people, 10.34% of Nigeria's total population, currently own cryptocurrency. Of those 22 million people, We estimate that about above 30% of them would have encountered solana. Many thanks to the transactions per second of the blockchain, the exceptionally low fee, and scalability. Solana NFTs have also helped onboard a lot of the Crypto population in Nigeria into the solana ecosystem.
 
+To onboard more users across Africa, we need to look at building products in crypto that help users make payment for essential services with crypto.
 
-### Figma Link
-https://www.figma.com/file/P7Oib9qWpMn3oJS2e2yN6f/Solana-Grizzlython-Hackathon?node-id=0%3A1&t=XGcmXuO72A7yV100-0
+SolPayPlus would help our users use Solana Pay to pay for over 50 essential services in Nigeria and in extension Africa.
 
+## 💫 Problem Description.
+It is estimated that 22 million people, 10.34% of Nigeria's total
+population, currently own cryptocurrency. Of those 22 million
+people, We estimate that about above 30% of them would
+have encountered solana. Many thanks to the transactions per
+second of the blockchain, the exceptionally low fee, and
+scalability. Solana NFTs have also helped onboard a lot of the
+Crypto population in Nigeria into the solana ecosystem. To
+onboard more users across Africa, we needed to look at
+building products in crypto that help users make payment for
+essential services with crypto.
 
-### Requirements -server[For Now]
+## 🚀 The Solution.
+We introduced SolPayPlus to allow for payment of
+over 17,000 bills in categories such as airtime, data
+bundles, Internet, electricity, cable TV, and
+Government agency dues in Nigeria, Ghana, Uganda,
+Kenya, Zimbabwe and more.
+
+## ✅ Market Opportunity
+The African market presents a significant opportunity for payment
+platforms. According to recent reports, more than 60% of Africans
+are unbanked, making it challenging to access traditional payment
+methods. However, mobile phone penetration is high, making it
+easier to provide mobile payment solutions.
+
+## 🔄 Architectural Flow.
+ SolPayPlus Architectural flow
+ ![image](https://i.postimg.cc/WpCZ6cjy/flow-1.jpg)
+ ![image](https://i.postimg.cc/WzgMCsPX/architecture.jpg)
+
+ ## 🤖 Tools & Technologies.
+ - ReactJS - web framework
+ - TypeScript - for static typing
+ - Express - Web server
+ - Solana pay - getting/creating payment request
+ - Flutterwave SDK - payment gateway
+ - Rust - Rewards smart contract/portal
+ - Styled-Components - for styling
+
+## 🪙 Local installation
 * NPM and Node installed, download [HERE](https://phoenixnap.com/kb/install-node-js-npm-on-windows)
 
 * git clone the repository
 
 ```
-  $ git clone https://github.com/Samuellyworld/sol-pay-bill.git
+  $ git clone https://github.com/Samuellyworld/SolPayPlus.git
 ```
 - open app directory
 
 ```
- $ cd sol-pay-bill
+ $ cd SolPayPlus
 ```
 
-- install server dependencies
+- install both server and client dependencies
 
 ```
- $ npm run install-server
+ $ npm run install
 ```
 
-- start server
+- start both server and client
 ```
- $ npm run server
+ $ npm run dev
 ```
+
+## 👨🏼‍🍳 Team.
+- [David Kazeem](https://github.com/davonjagah)
+- [Olumide Nwosu](https://github.com/olumidayy)
+- [Chukwuemeka Kingsley](https://github.com/ChukwuemekaKingsley)
+- [Samuel Tosin](https://github.com/Samuellyworld)
+
+## 🔗 Links.
+- [Live](https://solpayplus.com.ng/)
+- [Figma](https://www.figma.com/file/P7Oib9qWpMn3oJS2e2yN6f/Solana-Grizzlython-Hackathon?node-id=118%3A633&t=eubfdLbZQv1n7mEQ-0)
+- [Youtube]()
+- [Backend API Documentation](https://documenter.getpostman.com/view/9070802/2s93JnU6dp)
+
+## 📃 Developer Resources.
+- [Solana pay - simulate](https://github.com/solana-labs/solana-pay/blob/master/core/example/payment-flow-merchant/simulateWalletInteraction.ts)
+- [Flutterwave - SDK](https://developer.flutterwave.com/docs/making-payments/bill-payments/)
+- [Solana pay Docs](https://docs.solanapay.com/)
+
+
+## 🪪 License.
+Copyright SolPayPlus 2023 [**MIT LICENSE**](/LICENSE)
 
 
