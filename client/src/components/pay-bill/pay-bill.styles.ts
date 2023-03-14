@@ -10,6 +10,16 @@ export const PayBillContainer = styled.div`
     font-family: 'Space Grotesk';
     font-style: normal;
 
+    .css-b62m3t-container{
+        width : 26rem;
+    }
+    .css-m2atif-control{
+        padding : 0.3rem;
+    }
+
+    .react-tel-input {
+        width : 26rem;
+    }
 `
 // pay bill inner container styles
 export const PayBillInnerContainer = styled.div`
@@ -216,8 +226,6 @@ export const PayBillButtonTwo = styled.button`
     color : #2C2C2C;
     outline: none;
     border-radius: 5px;
-
-    z-index: 1;
 
     @media only screen and (max-width: 568px) {
         padding: 0.5rem 0.8rem;

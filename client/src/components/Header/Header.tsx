@@ -21,12 +21,12 @@ import { Link } from "react-router-dom";
 import Marquee from "../marquee/marquee";
 
 // import relevant smart contract interact module
-import { getSppusers, sortUser } from "../../utils/interact";
+// import { getSppusers, sortUser } from "../../utils/interact";
 import { alert, close } from "../../store/alert/alert.modal.reducer";
 
 // use navigate from react-router dom
 import { useNavigate } from "react-router-dom";
-import { getRewards } from "../../utils/requests";
+import { getRewards, sortUser, userRewards } from "../../utils/requests";
 
 
 
@@ -49,24 +49,34 @@ const Header : () => JSX.Element = () => {
      const { setVisible } = useWalletModal();
 
      // wallet uses
-     const { publicKey, connected, connecting } = useWallet();
+     const { publicKey, connected, connecting, connect } = useWallet();
 
      // connect wallet functionalities
      const connectWallet = async () => { 
-       setVisible(true);
-       dispatch(setCurrentUser(publicKey?.toString()))  ;    
+       await setVisible(true);
+     
+      // await connect
+      //  dispatch(setCurrentUser(publicKey?.toString()))  ;    
      }
+
+     
     // use effect
     useEffect(() => {
         dispatch(setCurrentUser(publicKey?.toString()));
      }, [connected, dispatch, publicKey])
 
-    //  useEffect(() => {
-    //    const rewards = getRewards(address);
-    //    dispatch(setRewards(rewards));
-    //    console.log(rewards)
-    //  }, [address])
 
+
+     useEffect(() => {
+       const rewards = userRewards(address, dispatch);
+     }, [address])
+
+     useEffect(() => {
+      if(address) {
+        sortUser(address)
+      }
+    
+     }, [address])
     // get rewards;
     const rewardsLink =  async () => {
        if(!address) {
