@@ -9,12 +9,16 @@ export const SplashContainer = styled.div`
   display: flex;
   gap: 2rem;
   position: relative;
+  
 
   @media screen and (max-width: 1035px) and (min-width: 800px) {
-    padding: 3rem 4rem 1rem 4rem;
+    padding: 3rem 4rem 7rem 4rem;
   }
-  @media screen and (max-width: 800px) {
-    padding: 3rem 2rem 1rem 2rem;
+  @media screen and (max-width: 800px) and (min-width : 400px) {
+    padding: 3rem 2rem 3rem 2rem;
+  }
+  @media screen and (max-width : 400px) {
+    padding : 3rem 1rem 2rem 1rem;
   }
 `;
 
@@ -38,11 +42,18 @@ export const SplashLeft = styled.div`
       inline-size: 24rem;
     }
 
-    @media screen and (max-width: 649px) {
+    @media screen and (max-width: 649px) and (min-width : 400px) {
       display: inline;
       font-size: 2.6rem;
       inline-size: 10rem;
       overflow-wrap: break-word;
+    }
+
+    @media screen and (max-width : 400px) {
+        font-size : 2.2rem;
+        line-height : 3rem;
+        inline-size: 18rem;
+        overflow-wrap : break-word;
     }
 
     img {
@@ -60,6 +71,11 @@ export const SplashLeft = styled.div`
     overflow-wrap: break-word;
     line-height: 1.9rem;
     padding: 1.5rem 0rem 0rem 0rem;
+
+    @media screen and  (max-width : 400px) {
+        inline-size : unset;
+        overflow-wrap : unset;
+    }
   }
 
   button {

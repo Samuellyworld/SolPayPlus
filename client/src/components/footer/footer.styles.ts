@@ -7,6 +7,10 @@ export const FooterContainer = styled.div`
   background: white;
   padding: 1rem 3rem 0rem;
   flex-direction: column;
+
+  @media screen and (max-width : 600px) {
+    padding : 1rem 1rem 0rem;
+  }
 `;
 // footer D styles
 export const FooterD = styled.div`
@@ -32,6 +36,13 @@ export const FooterD = styled.div`
     font-weight: 700;
     line-height: 2rem;
     color: white;
+
+    @media screen and (max-width : 420px) and (min-width : 390px) {
+        font-size : 1.2rem;
+    }
+    @media screen and (max-width : 390px) {
+        font-size : 1rem;
+    }
   }
 
   button {

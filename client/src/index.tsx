@@ -11,6 +11,7 @@ import { store, Persistor } from './store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Popup from './components/modal/modal';
+import AlertConfirmation from './components/modal/alert';
 
 // root element;
 const root = ReactDOM.createRoot(
@@ -22,6 +23,7 @@ root.render(
     <Provider store={store}>
      <PersistGate loading={null} persistor={Persistor}>
      <Popup />
+     <AlertConfirmation/>
       <App />
     </PersistGate>
      </Provider>

@@ -22,7 +22,7 @@ import Marquee from "../marquee/marquee";
 
 // import relevant smart contract interact module
 // import { getSppusers, sortUser } from "../../utils/interact";
-import { alert, close } from "../../store/alert/alert.modal.reducer";
+import { alert, bottomAlert, close } from "../../store/alert/alert.modal.reducer";
 
 // use navigate from react-router dom
 import { useNavigate } from "react-router-dom";
@@ -49,14 +49,13 @@ const Header : () => JSX.Element = () => {
      const { setVisible } = useWalletModal();
 
      // wallet uses
-     const { publicKey, connected, connecting, connect } = useWallet();
+     const { publicKey, connected, connecting } = useWallet();
 
      // connect wallet functionalities
      const connectWallet = async () => { 
+      dispatch(bottomAlert("okay"))
        await setVisible(true);
-     
-      // await connect
-      //  dispatch(setCurrentUser(publicKey?.toString()))  ;    
+       
      }
 
      
@@ -86,9 +85,6 @@ const Header : () => JSX.Element = () => {
         }, 700);
        }  
        const rewards = await getRewards(address, dispatch, Navigate);
-      //  console.log(rewards)
-      //  dispatch(setRewards(rewards));
-      // Navigate('/transactions');
     }
      
      // building block
@@ -123,7 +119,7 @@ const Header : () => JSX.Element = () => {
             address && !connecting && connected  ?
               <span>
                 {address?.substring(0,5)}...
-				{address?.substring(38,42)} 
+			        	{address?.substring(38,42)} 
               </span>
               :
               <span> Connect Wallet</span>
@@ -131,6 +127,7 @@ const Header : () => JSX.Element = () => {
             {
                 !address ?  
                 <img 
+                className="connect"
                  src="/assets/Wallet.png" 
                  alt="connect wallet"
                 /> 

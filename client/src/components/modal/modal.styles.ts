@@ -13,7 +13,7 @@ export const PopupContainer = styled.div<PropsType>`
   border-radius: 0.5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
   opacity: ${({ visible }) => (visible ? 1 : 0)};
-  transition: opacity 0.3s ease-out;
+  transition: opacity 1s ease-out;
   font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 500;
