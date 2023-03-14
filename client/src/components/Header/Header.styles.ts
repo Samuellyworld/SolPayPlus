@@ -127,6 +127,7 @@ export const HeaderConnectWallet = styled.button`
   :hover .dropDownConnect__items {
     display: flex;
     justify-content: center;
+    align-items : center;
     margin: auto;
   }
   .dropDownConnect_item {
