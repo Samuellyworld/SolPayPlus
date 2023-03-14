@@ -169,9 +169,6 @@ const PayBill = () => {
                     }
                   
                     </PayBillGroup>
-
-             
-
                 <PayBillGroup>
                     <PayBillLabel>Amount</PayBillLabel>
                     <PayBillAmoutCont>
@@ -182,17 +179,9 @@ const PayBill = () => {
                            min={category === "electricity" ? 1000 : undefined}
                            onChange={(e) => setNairaAmount(e.target.value)}
                         />
-                         {/* <p style={{
-                                marginTop : "5px" ,
-                                fontSize : "13px",
-                                fontWeight : "bold",
-                                color : "green",
-                             }}>{category === "electri"}</p> */}
-                       
-                    
                         <PayBillAmountIn>
                             <PayBillAmountInText>Amount in</PayBillAmountInText>
-                            <PayBillSQLInText>USD: ${amount[1] === 0 ?  (nairaAmount/750).toFixed(2) : (result?.amount/750).toFixed(2)}</PayBillSQLInText>
+                            <PayBillSQLInText>USD: ${!selectedOption?.value ? "0.00" :  amount[2] === 0 ?  (nairaAmount/750).toFixed(2) : (result?.amount/750).toFixed(2)}</PayBillSQLInText>
                         </PayBillAmountIn>
                     </PayBillAmoutCont>
                 </PayBillGroup>
@@ -207,7 +196,7 @@ const PayBill = () => {
                     <PayBillButtonTwo>
                         Pay with Cashback Balance
                     </PayBillButtonTwo>
-                    <PayBillPrice>₦{rewards?.data?.balance}</PayBillPrice>
+                    <PayBillPrice>₦{!rewards?.data?.balance ? "0" : rewards?.data?.balance}</PayBillPrice>
 
                 </PayBillButtonDiv>
 

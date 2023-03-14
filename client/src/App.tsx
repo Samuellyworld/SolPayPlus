@@ -5,6 +5,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
+  Navigate
 } from "react-router-dom";
 
 // import pages that makes up the app;
@@ -20,6 +21,9 @@ import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { WalletModalProvider} from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 
+// dispatch
+import {useSelector} from 'react-redux';
+import { RootState } from './store/store';
 
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
@@ -39,22 +43,23 @@ function App() {
         [network]
     );
 
+    const address = useSelector((state : RootState) => (
+       state?.currentUser?.currentUser
+    ))
       
 // JSX Component
   return  (
       <ConnectionProvider endpoint={endpoint}>
         <WalletProvider wallets={wallets} autoConnect>
           <WalletModalProvider>
-
             <Router>
             <Routes>
               <Route path='/' element={<LandingPage />} />
               <Route path='/app' element={<ServicesPage/>} />
-              <Route path='/payment' element={<PaymentPage />} />
-              <Route path='/transactions' element={<TransactionsPage/>} />
+              <Route path='/payment' element={!address ? <Navigate to="/app"/> :  <PaymentPage />} />
+              <Route path='/transactions' element={!address ? <Navigate to="/app"/> : <TransactionsPage/>} />
             </Routes>
            </Router>
-
           </WalletModalProvider>
        </WalletProvider>
       </ConnectionProvider>

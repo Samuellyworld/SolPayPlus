@@ -79,12 +79,14 @@ const Header : () => JSX.Element = () => {
     // get rewards;
     const rewardsLink =  async () => {
        if(!address) {
-        dispatch(alert('Connect Your Wallet ⛔️'));
+        dispatch(alert('Connect Wallet ⛔️'));
        return setTimeout(() => {
           dispatch(close(""));
-        }, 700);
-       }  
-       const rewards = await getRewards(address, dispatch, Navigate);
+        }, 1000);
+       }  else {
+        const rewards = await getRewards(address, dispatch, Navigate);
+       }
+      
     }
      
      // building block
