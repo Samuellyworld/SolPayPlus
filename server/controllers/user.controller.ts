@@ -70,7 +70,7 @@ const { SystemProgram } = web3;
 						//@ts-ignore
 						total: +user.cashbackTotal.toString(),
 						//@ts-ignore
-						tx_list: user.tx_list.map((txn)=>getBillPayment(txn.tx))
+						tx_list: user.txList
 							}
 						})
 						
