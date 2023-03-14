@@ -13,10 +13,14 @@ import { PayBillAmountIn, PayBillAmountInText,
 
 //import react phone put 2 library
 import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import 'react-phone-input-2/lib/style.css';
+
+//import select
+import Select from "react-select";
 
 //importing custom dropdown 
 import Dropdown from "../dropdown/dropdown";
+import { customStyles } from "../../utils/utils";
 
 // importing options from utils
 import { airtimeOptions } from "../../utils/utils";
@@ -37,10 +41,25 @@ const PayBill = () => {
 
     // selector
     const bills = useSelector((state: RootState) => state?.currentUser?.bills)
+    //rewards
+    const rewards = useSelector((state: RootState) => state?.currentUser?.rewards)
+    console.log(rewards);
    console.log(bills, 'bills')
 
-   const billsName = bills?.map((bill : any) => bill.name)
+   const billsName = bills?.map((bill : any) => ({
+    value: bill.name,
+    label: bill.name,
+   }))
 
+   const amount = bills?.map((bill : any) => (
+      bill.amount
+   ))
+
+   const [selectedOption, setSelectedOption] : any = useState("");
+
+   const result = bills?.find((bill: any) => bill.name === selectedOption?.value)
+
+   console.log(result, amount)
     // use state initial values
     const [phone, setPhone] : DropdownSelectType = useState("");
   return (
@@ -92,13 +111,23 @@ const PayBill = () => {
 
                 <PayBillGroup>
                     <PayBillLabel>Network Provider</PayBillLabel>
-                    <Dropdown theDefault = {billsName[0]} label = ""options = {billsName} />
+                    <Select
+                        options={billsName}
+                        styles={customStyles}
+                        //@ts-ignore
+                        defaultValue={selectedOption}
+                        onChange={(e : any) => setSelectedOption(e)}
+                        />
                 </PayBillGroup>
 
                 <PayBillGroup>
                     <PayBillLabel>Amount</PayBillLabel>
                     <PayBillAmoutCont>
-                        <PayBillInput type = "text" />
+                    
+                        <PayBillInput
+                           type = "text" 
+                           value={amount[0] === "0" ? "" : result?.amount }
+                        />
                         <PayBillAmountIn>
                             <PayBillAmountInText>Amount in</PayBillAmountInText>
                             <PayBillSQLInText>SQL: 10</PayBillSQLInText>
@@ -116,7 +145,7 @@ const PayBill = () => {
                     <PayBillButtonTwo>
                         Pay with Cashback Balance
                     </PayBillButtonTwo>
-                    <PayBillPrice>N5000</PayBillPrice>
+                    <PayBillPrice>N{rewards?.data?.balance}</PayBillPrice>
 
                 </PayBillButtonDiv>
 
