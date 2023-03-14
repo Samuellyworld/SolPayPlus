@@ -53,8 +53,7 @@ const Header : () => JSX.Element = () => {
 
      // connect wallet functionalities
      const connectWallet = async () => { 
-      dispatch(bottomAlert("okay"))
-       await setVisible(true);
+        setVisible(true);
        
      }
 
@@ -72,7 +71,7 @@ const Header : () => JSX.Element = () => {
 
      useEffect(() => {
       if(address) {
-        sortUser(address)
+        sortUser(address, dispatch)
       }
     
      }, [address])
