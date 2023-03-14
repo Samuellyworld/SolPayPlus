@@ -12,6 +12,13 @@ export const PayBillContainer = styled.div`
 
     .css-b62m3t-container{
         width : 26rem;
+
+        @media screen and (max-width : 470px) and (min-width : 400px) {
+            width : 90%;
+        }
+        @media screen and (max-width : 400px) {
+            width : 100%;
+        }
     }
     .css-m2atif-control{
         padding : 0.3rem;
@@ -19,9 +26,22 @@ export const PayBillContainer = styled.div`
 
     .react-tel-input {
         width : 26rem;
+         
+        @media screen and (max-width : 470px) and (min-width : 400px) {
+            width : 90%;
+        }
+        @media screen and (max-width : 400px) {
+            width : 100%;
+        }
     }
     .input {
         width : 24.2rem;
+        @media screen and (max-width : 470px) and (min-width : 400px) {
+            width : 90%;
+        }
+        @media screen and (max-width : 400px) {
+            width : 100%;
+        }
     }
 
 `
