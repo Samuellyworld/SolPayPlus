@@ -21,7 +21,7 @@ export const initializePayment = async (req: Request, res: Response) => {
         const recipient = new PublicKey(defaultConfig.MERCHANT_ADDRESS);
         const reference = new Keypair().publicKey;
         const amount = new BigNumber(req.body.amount);
-        const url = encodeURL({ amount, recipient, label: 'New Payment', reference });
+        const url = encodeURL({ amount, recipient, label: req.body.label, reference });
         res.status(200).json({
             message: 'Transaction Initialized.',
             data: { url },

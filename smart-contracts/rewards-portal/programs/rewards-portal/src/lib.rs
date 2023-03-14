@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program::entrypoint::ProgramResult;
+use anchor_lang::solana_program::System;
 
 declare_id!("JYL8VC6nj5WbnNYnMyy8rCaPDiDtdQ31ggdiwUdYZgH");
 
@@ -55,6 +56,7 @@ pub struct Create<'info> {
     #[account(mut)]
     pub user: Signer<'info>,
     pub system_program: Program<'info, System>
+
 }
 
 #[derive(Accounts)]

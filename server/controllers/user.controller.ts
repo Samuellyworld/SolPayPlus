@@ -25,9 +25,9 @@ const { SystemProgram } = web3;
 		const connection  = new Connection(network, opts.preflightCommitment);
 		const provider = new AnchorProvider(
 			connection,
-            //@ts-ignore
+        //@ts-ignore
 			keypair,
-            //@ts-ignore
+        //@ts-ignore
 			opts.preflightCommitment
 		);
 		return provider;
