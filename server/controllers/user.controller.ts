@@ -55,6 +55,7 @@ const { SystemProgram } = web3;
 			)
 		).then((sppusers) => {
 			sppusers.map(async (user : any)=>{
+
 				
 				         //@ts-ignore
 				if(user.admin.toString()==walletAddress){
@@ -64,6 +65,7 @@ const { SystemProgram } = web3;
 							message:true,
 							data:{
 								//@ts-ignore
+					    pubkey:user.pubkey,
 						wallet:user.admin.toString(),
 						//@ts-ignore
 						balance: +user.cashbackBalance.toString(),
