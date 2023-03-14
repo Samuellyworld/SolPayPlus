@@ -1,6 +1,7 @@
 import Flutterwave from "flutterwave-node-v3";
 import { defaultConfig } from "../config/config";
 import { Request, Response } from 'express';
+import { validate } from "./payment.controller";
 import { v4 as uuidv4 } from 'uuid';
 const flw = new Flutterwave(defaultConfig.FLW_PUBLIC_KEY, defaultConfig.FLW_SECRET_KEY);
 
@@ -215,12 +216,13 @@ const paymentAgencies = async (req: Request, res: Response) => {
 const createBill = async (req: Request, res: Response) => {
     try {
         const payload=req.body
-        
-        const response = await flw.Bills.create_bill(payload)
-        res.status(200).json({
-            data: response
-  
-        })
+        validate(payload.reference, payload.amount_paid);
+        if(validate){
+            const response = await flw.Bills.create_bill(payload)
+            res.status(200).json({
+                data: response
+            })
+        }      
     } catch (error) {
         console.log(error)
         res.status(500).json({

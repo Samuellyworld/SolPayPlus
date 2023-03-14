@@ -42,21 +42,44 @@ export const validatePayment = async (req: Request, res: Response) => {
         const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
         console.log('✅ Established connection to the network.');
         const { reference, amount } = req.body;
-        const signatureInfo = await findReference(connection, reference, { finality: 'confirmed' });
-        await validateTransfer(
+        const signatureInfo = await findReference(connection, new PublicKey(reference), { finality: 'confirmed' });
+       const validate= await validateTransfer(
             connection,
             signatureInfo.signature,
             { recipient: new PublicKey(defaultConfig.MERCHANT_ADDRESS), amount: new BigNumber(amount) },
         );
+       console.log(validate)
         res.status(200).json({
-            message: 'Payment validated.'
+            message: 'Payment validated.',
+
         });
     }
     catch (error) {
+        
         res.status(500).json({
             error: {
+
                 message:'Couldn\'t validate payment.'
             }
         })
+    }
+}
+
+export const validate = async (reference:string, amount:any) => {
+    try {
+        const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');
+        console.log('✅ Established connection to the network.');
+       
+        const signatureInfo = await findReference(connection, new PublicKey(reference), { finality: 'confirmed' });
+       const validate= await validateTransfer(
+            connection,
+            signatureInfo.signature,
+            { recipient: new PublicKey(defaultConfig.MERCHANT_ADDRESS), amount: new BigNumber(amount) },
+        );
+       console.log(validate)
+       
+    }
+    catch (error) {
+            console.error(error)
     }
 }
