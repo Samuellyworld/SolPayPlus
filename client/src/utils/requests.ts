@@ -101,15 +101,17 @@ export const getRewards = async (walletAddress : string| null, dispatch: any, Na
     .then((response) =>{
          console.log(response.data);
         dispatch(setRewards(response?.data))
+        
     })
  }
 
  // sort user;
- export const sortUser = async (walletAddress : any) => {
+ export const sortUser = async (walletAddress : any, dispatch: any) => {
     axios.get(`${baseUrl}/user/${walletAddress}`)
      .then(async (response) => {
         if(!response?.data?.message) {
             try {
+                dispatch(alert('Creating an account with SolPayPlus'))
                 const provider = getProvider();
                 //@ts-ignore
                 const program = new Program(ABI, programID, provider);
@@ -165,10 +167,12 @@ export const getRewards = async (walletAddress : string| null, dispatch: any, Na
       }).then(async (response : any) => {
         // check response
           if (response) {
+            // get URL
             console.log(response?.data?.data?.url, "url")
             const url = response?.data?.data?.url
+
             const payer = publicKey;
-            const { recipient, amount, splToken, reference, label, message, memo }: any= parseURL(url);
+            const { recipient, amount, splToken, reference, label, message, memo }: string | any= parseURL(url);
             console.log(reference.toString());
             dispatch(alert("Making payment with Solana-pay 💸"));
             const tx = await createTransfer(connection, payer, { recipient, amount, reference, memo });
