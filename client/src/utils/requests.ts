@@ -1,9 +1,16 @@
-// import axios from axios
+// import ABI
 import ABI from './ABI.json'
+// axios
 import axios from 'axios';
+// setting dispatch 
 import { setBills, setRewards } from '../store/user/user.reducer';
-import { alert, close } from '../store/alert/alert.modal.reducer';
-import { Connection, PublicKey, clusterApiUrl , sendAndConfirmTransaction} from "@solana/web3.js";
+import { alert, bottomAlert, close } from '../store/alert/alert.modal.reducer';
+import {  AnyAction } from "redux"
+
+// solana module
+import { Connection, PublicKey,
+         clusterApiUrl , sendAndConfirmTransaction
+       } from "@solana/web3.js";
 import {
 	Program,
 	AnchorProvider,
@@ -15,6 +22,7 @@ import type { Cluster } from '@solana/web3.js';
 // import { useEffect, useState } from "react";
 import { Buffer } from "buffer";
 import { parseURL, createTransfer } from '@solana/pay';
+import { Dispatch } from 'react';
 window.Buffer = Buffer;
 
 const programID = new PublicKey(ABI.metadata.address);
@@ -130,19 +138,32 @@ export const getRewards = async (walletAddress : string| null, dispatch: any, Na
      })
  }
  
- export const payWithSolanaPay = async(publicKey : any, usdAmount: any, labelName : any, dispatch : any, country :any, customer : any, type: any, naira : any) => {
+ export const payWithSolanaPay = async( publicKey : PublicKey, 
+                                        usdAmount: string | number | any,
+                                        labelName : string, 
+                                        dispatch : Dispatch<AnyAction>, 
+                                        country : string, 
+                                        customer : string, 
+                                        type: string, 
+                                        naira : string,
+                                        category : string) => {
+    // dispatch an alert                   
     console.log(usdAmount*750)
     dispatch(alert("Generating connection 🚀"));
     console.log(usdAmount/25)
+
+    // get a connection
      const connection = await establishConnection();
      setTimeout(() => {
         dispatch(close(""))
     }, 700)
-     console.log(connection);
+   
+    // initialize solana pay url
     axios.post(`${baseUrl}/payment/initialize`, {
         amount : (usdAmount/25).toFixed(4) ,
         label : labelName
       }).then(async (response : any) => {
+        // check response
           if (response) {
             console.log(response?.data?.data?.url, "url")
             const url = response?.data?.data?.url
@@ -184,7 +205,18 @@ export const getRewards = async (walletAddress : string| null, dispatch: any, Na
                 reference : reference.toString(),
                 recurrence : "ONCE"
              }).then ((response ) => {
-                if(response) return dispatch(alert(`${type} Paid ✅`));
+                // if category is eletricity
+
+                if(response) {
+                    if (category === "electricity") {
+                     console.log(response?.data?.data?.token)
+                        dispatch(bottomAlert(response?.data?.data?.token))
+                    } else {
+                        return dispatch(alert(`${category} Paid ✅`));
+                    }
+                 
+                }
+                
             })
            }
             

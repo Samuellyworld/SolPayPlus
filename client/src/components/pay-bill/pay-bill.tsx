@@ -19,11 +19,10 @@ import 'react-phone-input-2/lib/style.css';
 import Select from "react-select";
 
 //importing custom dropdown 
-import Dropdown from "../dropdown/dropdown";
 import { customStyles } from "../../utils/utils";
 
 // importing options from utils
-import { DropdownSelectType } from "../../types/types";
+import { DropdownSelectType, NestedObjectType } from "../../types/types";
 
 // get service name
 import { useLocation } from "react-router-dom";
@@ -40,6 +39,10 @@ import { useWallet } from "@solana/wallet-adapter-react";
 
 // import useDispatch
 import {useDispatch} from 'react-redux';
+import { ObjectType } from "typescript";
+import { PublicKey } from "@solana/web3.js";
+
+import { alert, close} from "../../store/alert/alert.modal.reducer";
 
 //JSX Component
 const PayBill = () => {
@@ -47,7 +50,8 @@ const PayBill = () => {
     const location = useLocation()
     const category = location.state
 
-    const dispatch = useDispatch();
+    // dispatch
+    const dispatch  = useDispatch();
 
     // selector
     const bills = useSelector((state: RootState) => state?.currentUser?.bills)
@@ -55,14 +59,14 @@ const PayBill = () => {
     const rewards = useSelector((state: RootState) => state?.currentUser?.rewards)
     console.log(rewards);
    console.log(bills, 'bills')
-   const  {publicKey} = useWallet();
+   const  {publicKey} : PublicKey | any= useWallet();
 
-   const billsName = bills?.map((bill : any) => ({
+   const billsName : string[] = bills?.map((bill : any) => ({
     value: bill.name,
     label: bill.name,
    }))
 
-   const amount = bills?.map((bill : any) => (
+   const amount : Number[] = bills?.map((bill : any) => (
       bill.amount
    ))
 
@@ -80,13 +84,27 @@ const PayBill = () => {
     // use state initial values
     const [phone, setPhone] : DropdownSelectType = useState("");
 
-    // 
+    // handle payment
     const handlePay = async () => {
-        const usdAmount = amount[0] === 0 ? (nairaAmount/750).toFixed(2)  : (result?.amount/750).toFixed(2)
+        const usdAmount : string | number = amount[0] === 0 ? (nairaAmount/750).toFixed(2)  : (result?.amount/750).toFixed(2)
         const naira = amount[0] === 0 ? nairaAmount : result?.amount
         const customer =   category === "electricity" || category === "cable" ? meter : phone
-       await payWithSolanaPay(publicKey, usdAmount, bills[0]?.label_name, dispatch, bills[0]?.country,customer, bills[0]?.biller_name, naira )
-    }
+
+         if(!bills[0]?.label_name || !customer) {
+            dispatch(alert("Fill all fields ⌛️"))
+            return setTimeout(() => {
+                dispatch(close(""))
+            }, 700)
+         }
+       await payWithSolanaPay(publicKey, 
+                              usdAmount, 
+                              bills[0]?.label_name,
+                              dispatch, 
+                              bills[0]?.country,customer,
+                              bills[0]?.biller_name,
+                              naira , category
+                              )
+            }
 
     // handle customer name
     const handleCustomerName = async  (e : any) => {
@@ -169,7 +187,7 @@ const PayBill = () => {
                     }
                   
                     </PayBillGroup>
-                <PayBillGroup>
+                  <PayBillGroup>
                     <PayBillLabel>Amount</PayBillLabel>
                     <PayBillAmoutCont>
                      
