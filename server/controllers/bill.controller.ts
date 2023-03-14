@@ -305,6 +305,7 @@ const getBillPayment = async (reference) => {
         }
 
         const response = await flw.Bills.fetch_status(payload)
+        console.log(response)
         return response;
 
     } catch (error) {

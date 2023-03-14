@@ -37,7 +37,6 @@ const { SystemProgram } = web3;
 
 
 	const getUser = async (req:Request, res:Response) => {
-	
 		try {
 			let walletAddress=req.params.wallet;
 			let found=false;
@@ -55,7 +54,8 @@ const { SystemProgram } = web3;
 				})
 			)
 		).then((sppusers) => {
-			sppusers.map((user)=>{
+			sppusers.map(async (user : any)=>{
+				
 				         //@ts-ignore
 				if(user.admin.toString()==walletAddress){
 					found=true;
