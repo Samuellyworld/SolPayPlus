@@ -1,8 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program::entrypoint::ProgramResult;
-use anchor_lang::solana_program::System;
 
-declare_id!("JYL8VC6nj5WbnNYnMyy8rCaPDiDtdQ31ggdiwUdYZgH");
+declare_id!("Eebaw3MaCuRBKPaAVe3bSWk8kJd99e77YoENumo2ZgSD");
 
 #[program]
 pub mod rewards_portal {
@@ -17,13 +16,17 @@ pub mod rewards_portal {
         Ok(())
     }
     
-    pub fn add_cashback(ctx: Context<Add>, amount: u64) -> ProgramResult {
+    pub fn add_cashback(ctx: Context<Add>, amount: u64, tx_id: String) -> ProgramResult {
         let sppuser = &mut ctx.accounts.sppuser;
         let user = &mut ctx.accounts.user;
         if sppuser.admin != *user.key {
             return Err(ProgramError::IncorrectProgramId);
         }
-       
+
+        let item = ItemStruct { tx:tx_id };
+        let tx_list = &mut ctx.accounts.sppuser.tx_list;
+        tx_list.push(item);
+
         (&mut ctx.accounts.sppuser).cashback_balance += amount;
         (&mut ctx.accounts.sppuser).cashback_total += amount;
         msg!("added cashback");
@@ -76,11 +79,16 @@ pub struct Add<'info> {
     pub user: Signer<'info>,
     pub system_program: Program<'info, System>
 }
+#[derive(Debug, Clone, AnchorSerialize, AnchorDeserialize)]
+pub struct ItemStruct {
+    pub tx: String
+}
 
 #[account]
 pub struct SolPayPlusUser {
     pub admin: Pubkey,
     pub cashback_balance: u64,
     pub cashback_total: u64,
+    pub tx_list: Vec<ItemStruct>,
 }
 

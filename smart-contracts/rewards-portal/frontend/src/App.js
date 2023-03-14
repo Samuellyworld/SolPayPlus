@@ -116,12 +116,12 @@ const App = () => {
       const amount = 21000;
       console.log(new BN(amount))
 
-			await program.rpc.addCashback(new BN(amount), {
+			await program.rpc.addCashback(new BN(amount), "gdggsbsjshhsjsjsjshhh",{
 				accounts: {
 					sppuser: publicKey,
 					user: provider.wallet.publicKey,
 					systemProgram: SystemProgram.programId,
-				},
+				}
 			});
 			console.log("Added Cashback to user: ", publicKey.toString());
 			getSppusers();

@@ -259,7 +259,7 @@ const getBillsPayment = async (req:Request, res:Response) => {
 
         const payload = req.body
 
-        const response = await flw.Bills.fetch_bills(payload)
+        const response = await flw.Bills.fetch_status(payload)
         res.status(200).json({
             data: response
         })
@@ -294,12 +294,29 @@ const amountToBePaid = async (req:Request, res:Response) => {
             }
         })
     }
+}
+
+const getBillPayment = async (reference) => {
+
+    try {
+
+        const payload = {
+            reference
+        }
+
+        const response = await flw.Bills.fetch_status(payload)
+        return response;
+
+    } catch (error) {
+        console.log(error)
+        
+    }
 
 }
 
 
 
 
- export{getBillsCategories, getBillsCategory, getStatus, paymentAgencies, amountToBePaid, createBill, validateBill, getBillsPayment}
+ export{getBillsCategories, getBillsCategory, getStatus, paymentAgencies, amountToBePaid, createBill, validateBill, getBillsPayment, getBillPayment}
 
 

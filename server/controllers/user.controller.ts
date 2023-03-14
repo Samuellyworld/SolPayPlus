@@ -1,6 +1,7 @@
 
 import idl from "../idl.json"
 import { Connection, PublicKey, clusterApiUrl , Keypair} from "@solana/web3.js";
+import { getBillPayment } from "./bill.controller";
 import { Request, Response } from 'express';
 import {
 	Program,
@@ -25,9 +26,9 @@ const { SystemProgram } = web3;
 		const connection  = new Connection(network, opts.preflightCommitment);
 		const provider = new AnchorProvider(
 			connection,
-        //@ts-ignore
+            //@ts-ignore
 			keypair,
-        //@ts-ignore
+            //@ts-ignore
 			opts.preflightCommitment
 		);
 		return provider;
@@ -36,7 +37,7 @@ const { SystemProgram } = web3;
 
 
 	const getUser = async (req:Request, res:Response) => {
-		
+	
 		try {
 			let walletAddress=req.params.wallet;
 			let found=false;
@@ -68,6 +69,8 @@ const { SystemProgram } = web3;
 						balance: +user.cashbackBalance.toString(),
 						//@ts-ignore
 						total: +user.cashbackTotal.toString(),
+						//@ts-ignore
+						tx_list: user.txList.map((txn)=>getBillPayment(txn.tx))
 							}
 						})
 						
@@ -88,6 +91,7 @@ const { SystemProgram } = web3;
 			})
 		}
 	 };
+	 
 
 
 	 export{getUser}
