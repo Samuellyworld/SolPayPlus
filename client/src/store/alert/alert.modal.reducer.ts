@@ -6,11 +6,13 @@ import { ALERT_ACTION_TYPES } from './alert.modal.action';
 // user types
 interface alertTypes {
    alertModal :  { openModal: boolean, modalContent: any },
+   bottomAlert : {openModal : boolean, modalContent : any}
 }
 
 // initial state
 const initialState: alertTypes= {
-  alertModal : {openModal : false, modalContent: ""}
+  alertModal : {openModal : false, modalContent: ""},
+  bottomAlert : {openModal : false, modalContent : ""}
 }
 
 // setting user actions
@@ -24,14 +26,21 @@ export const alertSlice= createSlice({
    },
   close : (state :any, action :PayloadAction<string>)  => {
     state.alertModal.openModal = false
-  }
+  },
+  bottomAlert : (state :any, action :PayloadAction<string>) => {
+    state.bottomAlert.openModal = true
+    state.bottomAlert.modalContent= action.payload 
+   },
+  bottomClose :  (state :any, action :PayloadAction<string>) => {
+    state.bottomAlert.openModal = false
+   }
   }
 
   
 })
 
 // dispatch
-export const {alert, close} = alertSlice.actions
+export const {alert, close, bottomAlert, bottomClose} = alertSlice.actions
 
 //reducer
 export default alertSlice.reducer

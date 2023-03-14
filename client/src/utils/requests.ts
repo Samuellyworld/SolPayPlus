@@ -3,7 +3,7 @@ import ABI from './ABI.json'
 import axios from 'axios';
 import { setBills, setRewards } from '../store/user/user.reducer';
 import { alert, close } from '../store/alert/alert.modal.reducer';
-import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
+import { Connection, PublicKey, clusterApiUrl , sendAndConfirmTransaction} from "@solana/web3.js";
 import {
 	Program,
 	AnchorProvider,
@@ -11,8 +11,10 @@ import {
 	utils,
 	BN,
 } from "@project-serum/anchor";
+import type { Cluster } from '@solana/web3.js';
 // import { useEffect, useState } from "react";
 import { Buffer } from "buffer";
+import { parseURL, createTransfer } from '@solana/pay';
 window.Buffer = Buffer;
 
 const programID = new PublicKey(ABI.metadata.address);
@@ -21,6 +23,22 @@ const opts = {
 	preflightCommitment: "processed",
 };
 const { SystemProgram } = web3;
+
+
+
+
+/**
+ * Establish a connection to the cluster
+ */
+export async function establishConnection(cluster: Cluster = 'devnet'): Promise<Connection> {
+    const endpoint = clusterApiUrl(cluster);
+    const connection = new Connection(endpoint, 'confirmed');
+    const version = await connection.getVersion();
+    console.log('Connection to cluster established:', endpoint, version);
+
+    return connection;
+}
+
 
 const getProvider = () => {
     //@ts-ignore
@@ -40,7 +58,7 @@ const baseUrl : string = 'https://solpayplus-server.herokuapp.com'
 
 // get rewards
 export const getRewards = async (walletAddress : string| null, dispatch: any, Navigate : any) => {
-     axios.get(`${baseUrl}/user/2dudFU32c5wsRpfRZDXBAJFirHC4hindqpKSCwwtDaAB`).
+     axios.get(`${baseUrl}/user/${walletAddress}`).
      then((response) => {
         if(response) {
             dispatch(setRewards(response.data))
@@ -110,4 +128,80 @@ export const getRewards = async (walletAddress : string| null, dispatch: any, Na
             }
         }
      })
+ }
+ 
+ export const payWithSolanaPay = async(publicKey : any, usdAmount: any, labelName : any, dispatch : any, country :any, customer : any, type: any, naira : any) => {
+    console.log(usdAmount*750)
+    dispatch(alert("Generating connection 🚀"));
+    console.log(usdAmount/25)
+     const connection = await establishConnection();
+     setTimeout(() => {
+        dispatch(close(""))
+    }, 700)
+     console.log(connection);
+    axios.post(`${baseUrl}/payment/initialize`, {
+        amount : (usdAmount/25).toFixed(4) ,
+        label : labelName
+      }).then(async (response : any) => {
+          if (response) {
+            console.log(response?.data?.data?.url, "url")
+            const url = response?.data?.data?.url
+            const payer = publicKey;
+            const { recipient, amount, splToken, reference, label, message, memo }: any= parseURL(url);
+            console.log(reference.toString());
+            dispatch(alert("Making payment with Solana-pay 💸"));
+            const tx = await createTransfer(connection, payer, { recipient, amount, reference, memo });
+            setTimeout(() => {
+                dispatch(close(""))
+            }, 700)
+            console.log(tx);
+            dispatch(alert("Confirming Transaction ⌛️"));
+            //@ts-ignore
+           let signed = await getProvider().wallet.signTransaction(tx)
+           let signature = await connection.sendRawTransaction(signed.serialize());
+           await connection.confirmTransaction(signature);
+           setTimeout(() => {
+            dispatch(close(""))
+        }, 700)
+           if(signature) {
+            dispatch(alert("Creating Bill 📃"));
+            console.log({
+                country,
+                customer,
+                amount : naira,
+                amount_paid : amount,
+                type,
+                reference : reference.toString(),
+                recurrence : "ONCE"
+             })
+            console.log(amount, "amount")
+            axios.post(`${baseUrl}/bill`, {
+                country,
+                customer,
+                amount : naira,
+                amount_paid : amount,
+                type,
+                reference : reference.toString(),
+                recurrence : "ONCE"
+             }).then ((response ) => {
+                if(response) return dispatch(alert(`${type} Paid ✅`));
+            })
+           }
+            
+          }
+      })
+   
+   
+ }
+
+ // for electricity and cables
+ export const getCustomerName = (customer : any, billerCode : any, name : any, item : any) => {
+    console.log(customer, billerCode, item)
+      axios.post(`${baseUrl}/bill/validate`, {
+        item_code : item,
+        code : billerCode,
+        customer
+      }). then((response) => {
+             name(response.data.data.data.name)
+      })
  }

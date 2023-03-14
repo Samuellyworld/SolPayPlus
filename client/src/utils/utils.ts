@@ -11,7 +11,7 @@ export const options : OptionsType[] = [
   ];
 
 // airtime options
-export const airtimeOptions : string[] = ["MTN", "Airtel", "9 Mobile", "Glo"]
+// export const airtimeOptions : string[] = ["MTN", "Airtel", "9 Mobile", "Glo"]
 
 export const customStyles : CustomStylesType | any = {
     control: (provided: NestedObjectType, state :{isFocused : boolean} ) => ({
@@ -91,4 +91,6 @@ export const services : ServiceType[] = [
      category : "cable"
     }
   ]
+
+
 

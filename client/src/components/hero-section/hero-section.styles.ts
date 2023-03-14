@@ -7,7 +7,9 @@ export const HeroSectionContainer = styled.div`
   flex-direction: column;
   background: white;
 
-  // height: 100vh;
+//   @media screen and (max-width : 1040px) {
+//     margin-top : 3rem;
+//   }
 `;
 
 // transactions container styles
@@ -64,7 +66,17 @@ export const ImagesContainer = styled.div`
   gap: 2rem;
   width: 50rem;
   margin: 4rem auto;
-  @media only screen and (max-width: 768px) {
+
+  @media screen and (max-width : 870px) and (min-width : 666px) {
+    width : 40rem;
+  }
+  @media screen and (max-width : 666px) and (min-width : 593px) {
+   width : 35rem;
+  }
+  @media screen and (max-width: 593px) {
+    width : 30rem;
+  }
+  @media screen and (max-width: 500px) {
     width: 300px;
     flex-wrap: wrap;
   }

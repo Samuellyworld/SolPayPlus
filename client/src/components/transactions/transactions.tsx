@@ -22,11 +22,11 @@ const Transactions = () => {
             <TransactionBoxContainer>
                 <TransactionBoxOne>
                     <CashBalanceText>Cash Back Balance</CashBalanceText>
-                    <CashNumberText>N{rewards?.data?.balance}</CashNumberText>
+                    <CashNumberText>₦{rewards?.data?.balance}</CashNumberText>
                 </TransactionBoxOne>
                 <TransactionBoxTwo>
                     <CashBalanceText>Total Rewards</CashBalanceText>
-                    <CashNumberText>N{rewards?.data?.total}</CashNumberText>
+                    <CashNumberText>₦{rewards?.data?.total}</CashNumberText>
                 </TransactionBoxTwo>
             </TransactionBoxContainer>
 

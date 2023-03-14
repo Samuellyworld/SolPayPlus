@@ -7,9 +7,15 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   padding: 2.5rem 2rem;
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 650px) and (max-width : 400px) {
     padding: 2rem 1rem;
   }
+  @media screen and (max-width : 450px) {
+   padding : 2rem 0.5rem;
+  }
+ 
+
+  
 `;
 
 // logo container styles
@@ -43,7 +49,7 @@ export const HeaderConnectContainer = styled.div`
   }
 
   @media screen and (max-width: 1100px) {
-    margin: 0rem 1rem 0rem 0rem;
+    margin: 0rem 0rem 0rem 0rem;
   }
   p {
     display: flex;
@@ -66,7 +72,7 @@ export const HeaderConnectContainer = styled.div`
       font-style: normal;
       font-weight: 500;
       font-size: 1rem;
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 500px) {
         display: none;
       }
     }
@@ -88,6 +94,12 @@ export const HeaderConnectWallet = styled.button`
   cursor: pointer;
   position: relative;
 
+  .connect {
+   @media screen and (max-width: 400px) {
+   display : none;
+   }
+}
+
   img {
     width: 1.1rem;
   }
@@ -97,6 +109,10 @@ export const HeaderConnectWallet = styled.button`
     font-style: normal;
     font-weight: 500;
     font-size: 1rem;
+
+    @media screen and (max-width : 450px) {
+      font-size: 0.8rem;
+    }
   }
   .dropDownConnect__items {
     right: 0;

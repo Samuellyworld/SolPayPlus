@@ -17,7 +17,7 @@ const SplashSection: () => JSX.Element = () => {
         </span>
         <p>
           Simplify Your Life with Our Multi-Payment Platform Across Nigeria and
-          Africa and{" "}
+          Africa 
         </p>
         <Link to="/app">
           <button>

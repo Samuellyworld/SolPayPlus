@@ -62,23 +62,39 @@ export const GlobalStyle = createGlobalStyle`
         background-size : 140%;
     }
     @media screen and (max-width : 650px) {
-        background : url('/assets/bg.png');
+        background : url('/assets/bg-2.png');
+        background-position-y : unset;
+        background-position-x : unset;
+        background-size: cover;
+        background-repeat : no-repeat;
     }
   }
   }
   .services {
     background : url('/assets/bg-2.png');
     height : 100vh;
+    background-position-y : unset;
+    background-position-x : unset;
+    background-size: cover;
+    background-repeat : no-repeat;
   }
   
   .payment {
     background : url('/assets/bg-2.png');
     height : 100vh;
+    background-position-y : unset;
+    background-position-x : unset;
+    background-size: cover;
+    background-repeat : no-repeat;
   }
 
   .transactions {
     background : url('/assets/bg-2.png');
     height : 100vh;
+    background-position-y : unset;
+    background-position-x : unset;
+    background-size: cover;
+    background-repeat : no-repeat;
   }
 
   .wallet-adapter-modal-wrapper

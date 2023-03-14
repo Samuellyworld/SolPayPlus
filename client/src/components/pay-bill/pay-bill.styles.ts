@@ -20,6 +20,10 @@ export const PayBillContainer = styled.div`
     .react-tel-input {
         width : 26rem;
     }
+    .input {
+        width : 24.2rem;
+    }
+
 `
 // pay bill inner container styles
 export const PayBillInnerContainer = styled.div`
@@ -62,7 +66,7 @@ export const PayBillHeader = styled.span`
 `
 
 // pay bill form styles
-export const PayBillForm = styled.form`
+export const PayBillForm = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -101,7 +105,6 @@ export const PayBillInput = styled.input`
     border : 1px solid #959595;
     border-radius   :5px ;
     outline : none;
-    
     padding : 0.85rem;
 `
 
