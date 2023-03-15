@@ -11,16 +11,19 @@ To onboard more users across Africa, we need to look at building products in cry
 SolPayPlus would help our users use Solana Pay to pay for over 50 essential services in Nigeria and in extension Africa.
 
 ## 💫 Problem Description.
-It is estimated that 22 million people, 10.34% of Nigeria's total
-population, currently own cryptocurrency. Of those 22 million
-people, We estimate that about above 30% of them would
-have encountered solana. Many thanks to the transactions per
-second of the blockchain, the exceptionally low fee, and
-scalability. Solana NFTs have also helped onboard a lot of the
-Crypto population in Nigeria into the solana ecosystem. To
-onboard more users across Africa, we needed to look at
-building products in crypto that help users make payment for
-essential services with crypto.
+The African Traditional payment market is highly
+competitive, with several players offering mobile payment
+solutions. However, Solpayplus differentiates itself by
+providing a low-cost, secure, and rewarding platform for
+paying everyday bills. Our focus on Crypto payments,
+customer needs and rewards program sets us apart from
+traditional payment solutions.
+
+With Solpayplus, we're providing a solution to the market's needs,
+offering a low-cost, easy-to-use platform that rewards users for
+paying their bills. With the growth of the African market, we're
+excited to be at the forefront of innovation, providing payment
+solutions that address the unique needs of African consumers.
 
 ## 🚀 The Solution.
 We introduced SolPayPlus to allow for payment of
@@ -85,9 +88,12 @@ easier to provide mobile payment solutions.
 - [Live](https://solpayplus.com.ng/)
 - [Figma](https://www.figma.com/file/P7Oib9qWpMn3oJS2e2yN6f/Solana-Grizzlython-Hackathon?node-id=118%3A633&t=eubfdLbZQv1n7mEQ-0)
 - [Youtube](https://youtu.be/2AQzXtQSEpg)
+- [Deck](https://drive.google.com/file/d/1rC5w5ZAS4qQoLiG1-ThcEB3hWFnkksN_/view?usp=sharing)
 - [Backend API Documentation](https://documenter.getpostman.com/view/9070802/2s93JnU6dp)
 
 ## 📃 Developer Resources.
+- [Solana web 3](https://solana-labs.github.io/solana-web3.js/)
+- [Anchor Lang](https://www.anchor-lang.com/)
 - [Solana pay - simulate](https://github.com/solana-labs/solana-pay/blob/master/core/example/payment-flow-merchant/simulateWalletInteraction.ts)
 - [Flutterwave - SDK](https://developer.flutterwave.com/docs/making-payments/bill-payments/)
 - [Solana pay Docs](https://docs.solanapay.com/)

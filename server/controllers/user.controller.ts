@@ -1,7 +1,6 @@
 
 import idl from "../idl.json"
 import { Connection, PublicKey, clusterApiUrl , Keypair} from "@solana/web3.js";
-import { getBillPayment } from "./bill.controller";
 import { Request, Response } from 'express';
 import {
 	Program,

@@ -2,7 +2,6 @@ import Flutterwave from "flutterwave-node-v3";
 import { defaultConfig } from "../config/config";
 import { Request, Response } from 'express';
 import { validate } from "./payment.controller";
-import { v4 as uuidv4 } from 'uuid';
 const flw = new Flutterwave(defaultConfig.FLW_PUBLIC_KEY, defaultConfig.FLW_SECRET_KEY);
 
 
@@ -58,26 +57,11 @@ const getBillsCategory= async (req:Request, res: Response)=>{
                         return bill
                     }
                 }
-                //    if(country=='GH' && bill.country==country){
-                //        if(bill.biller_code=='BIL132' || bill.biller_code=='BIL133' || bill.biller_code=='BIL134' ){
-                //            return bill
-                //        }
-                //    }
                    if(country=='UG' && bill.country==country){
                        if(bill.biller_code=='BIL161' || bill.biller_code=='BIL162' || bill.biller_code=='BIL163' ){
                            return bill
                        }
-                   }
-                //    if(country=='ZM' && bill.country==country){
-                //        if(bill.biller_code=='BIL196' || bill.biller_code=='BIL197' || bill.biller_code=='BIL198' ){
-                //            return bill
-                //        }
-                //    }
-                //    if(country=='KE' && bill.country==country){
-                //        if(bill.biller_code=='BIL189' || bill.biller_code=='BIL187'){
-                //            return bill
-                //        }
-                //    }   
+                   }  
             }
             else if(category=='electricity'){
                 if(country=='NG' && bill.country==country){
@@ -144,21 +128,6 @@ const getBillsCategory= async (req:Request, res: Response)=>{
                            return bill
                        }
                    }
-                //    if(country=='UG' && bill.country==country){
-                //        if(bill.biller_code=='BIL156' || bill.biller_code=='BIL157'){
-                //            return bill
-                //        }
-                //    }
-                //    if(country=='ZM' && bill.country==country){
-                //        if(bill.biller_code=='BIL200' || bill.biller_code=='BIL201'){
-                //            return bill
-                //        }
-                //    }
-                //    if(country=='KE' && bill.country==country){
-                //        if(bill.biller_code=='BIL190' || bill.biller_code=='BIL192'){
-                //            return bill
-                //        }
-                //    }   
             }
         })
         res.status(200).json({
@@ -296,6 +265,7 @@ const amountToBePaid = async (req:Request, res:Response) => {
     }
 }
 
+// get bill payment
 const getBillPayment = async (reference) => {
 
     try {
@@ -314,10 +284,10 @@ const getBillPayment = async (reference) => {
     }
 
 }
-
-
-
-
- export{getBillsCategories, getBillsCategory, getStatus, paymentAgencies, amountToBePaid, createBill, validateBill, getBillsPayment, getBillPayment}
+// export 
+ export{getBillsCategories, getBillsCategory, 
+        getStatus, paymentAgencies, 
+        amountToBePaid, createBill, 
+        validateBill, getBillsPayment, getBillPayment}
 
 

@@ -62,14 +62,3 @@ const actualRate= async (req: Request, res: Response) => {
     }
   }   
   export {nairaRate, actualRate}
-
-//Take ss for test purpose
-    // await page.screenshot({
-    //     fullPage: true,
-    //     path: 'new_image.png'
-    //   });
-    //   const screenshotPath = process.cwd() + '/new_image.png';
-  
-    //   console.log('Location of the screenshot:', screenshotPath);
-  
-  
