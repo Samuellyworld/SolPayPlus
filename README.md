@@ -1,5 +1,4 @@
 ## SolPayPLus
-
 [SolPayPLus](https://solpayplus.com.ng/) allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.
 ![image](https://i.postimg.cc/VkkVqwDt/Pay-Bills-Graphics.jpg)
 

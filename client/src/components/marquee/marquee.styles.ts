@@ -1,6 +1,7 @@
 // import styled from styled components
-import styled , {keyframes} from "styled-components"
+import styled , {keyframes} from "styled-components";
 
+//declaring marquee animation 
 const marquee = keyframes`
     0% {
         transform: translateX(100%);

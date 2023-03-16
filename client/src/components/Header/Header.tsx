@@ -32,6 +32,7 @@ import { getRewards, sortUser, userRewards } from "../../utils/requests";
 
 // header component
 const Header : () => JSX.Element = () => {
+    
     const dispatch  = useDispatch()
 
     const Navigate = useNavigate()

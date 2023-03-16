@@ -49,7 +49,7 @@ export const HeaderConnectContainer = styled.div`
   }
 
   @media screen and (max-width: 1100px) {
-    margin: 0rem 0rem 0rem 0rem;
+    margin: 0rem;
   }
   p {
     display: flex;

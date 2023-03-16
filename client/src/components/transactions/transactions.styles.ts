@@ -1,6 +1,7 @@
 //importing styled from styled components
 import styled from "styled-components";
 
+//Transaction Container styles
 export const TransactionContainer = styled.div`
     width: 100%;
 
@@ -10,7 +11,7 @@ export const TransactionContainer = styled.div`
     font-family: 'Space Grotesk';
     font-style: normal;
 `
-
+//Transction Inner Container Style
 export const TransactionInnerContainer = styled.div`
     width: 50%;
     margin-top: 1rem;
@@ -18,7 +19,6 @@ export const TransactionInnerContainer = styled.div`
     @media only screen and (max-width: 1109px) {
         width :55%;
     }
-
     @media only screen and (max-width: 1051px) {
         width :60%;
     }
@@ -35,7 +35,7 @@ export const TransactionInnerContainer = styled.div`
         width :95%;
     }
 `
-
+//Transaction box container style
 export const TransactionBoxContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -48,13 +48,12 @@ export const TransactionBoxContainer = styled.div`
         justify-content: center;
     } 
 `
-
+//Transaction first box styles
 export const TransactionBoxOne = styled.div`
     background-image: url("/assets/Frame_7.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-
 
     aspect-ratio: 1 / 0.5;
     width : 100%;
@@ -81,21 +80,17 @@ export const TransactionBoxOne = styled.div`
         background-size: contain;
         gap: 1rem;
     } 
-   
 `
-
+//Transaction box two styles
 export const TransactionBoxTwo = styled.div`
     background-image: url("/assets/Frame_6.png");
-    
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     
-
     width : 100%;
     aspect-ratio: 1 / 0.5;
-
-    
+ 
     display: flex;
     flex-direction: column;
 
@@ -121,10 +116,10 @@ export const TransactionBoxTwo = styled.div`
     } 
 
 `
-
+//Declaring Transaction Image style
 export const TransactionImage = styled.img`
 `
-
+//Cash balance text styles
 export const CashBalanceText = styled.span`
     color : white;
     font-size: 0.9rem;
@@ -141,7 +136,7 @@ export const CashBalanceText = styled.span`
         font-size: 0.9rem;
     } 
 `
-
+//Cash number text styles
 export const CashNumberText = styled.span`
     color : white;
     margin-top: 1rem;
@@ -159,11 +154,11 @@ export const CashNumberText = styled.span`
         font-size: 2rem;
     } 
 `
-
+//Done Transaction styles
 export const DoneTransactions = styled.div`
     margin-top: 2rem;
 `
-
+//Transaction header styles
 export const TransactionHeader = styled.span`
     display: block;
     margin-bottom: 1rem;
@@ -174,16 +169,15 @@ export const TransactionHeader = styled.span`
         font-size: 1.3rem;
     } 
 `
-
+//List transaction styles
 export const ListTransctionContainer = styled.div`
     display : grid;
     grid-template-columns: 1fr 1fr 1fr;
 
     padding: 0.5rem 1rem;
     margin-bottom: 0.2rem;
-
 `
-
+//List tranasction sub header container styles
 export const ListTransctionSubHeaderContainer = styled.div`
     display : grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -192,9 +186,8 @@ export const ListTransctionSubHeaderContainer = styled.div`
     margin-bottom: 1rem;
     border-radius: 5px;
     padding: 0.5rem ;
-
 `
-
+//Header Transaction  text styles
 export const HeaderTransaction = styled.span`
     font-weight: bold;
     font-size: 0.9rem;
@@ -204,8 +197,7 @@ export const HeaderTransaction = styled.span`
         text-align: center;
     } 
 `
-
-
+//Transaction Item styles
 export const TransactionItem = styled.div`
     padding-left: 1rem;
     font-size: 0.88rem;

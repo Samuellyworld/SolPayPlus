@@ -255,7 +255,7 @@ export const PayBillButtonTwo = styled.button`
     }
 
     @media only screen and (max-width: 445px) {
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem;
     }
 
     @media only screen and (max-width: 429px) {

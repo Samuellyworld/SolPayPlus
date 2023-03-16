@@ -13,10 +13,7 @@ export const ProductsContainer = styled.div`
     justify-content: center;
     font-family: 'Space Grotesk';
     font-style: normal;
-
-    
 `
-
 // products mini container styles
 export const ProductsMiniContainer = styled.div`
     width: 45%;
@@ -44,7 +41,6 @@ export const ProductsMiniContainer = styled.div`
         width: 90%;
     }
 `
-
 // products top styles
 export const ProductsTop = styled.div`
     margin-bottom: 1rem;
@@ -69,24 +65,19 @@ export const ProductsTopLeft = styled.span`
     @media only screen and (max-width: 556px) {
         font-size: 1.3rem;
     }
-
     @media only screen and (max-width: 486px) {
         font-size: 1.2rem;
         width: 50%;
     }
     @media only screen and (max-width: 486px) {
         font-size: 1rem;
-    }
-    
+    }   
 `
-
 // products top right styles
 export const ProductsTopRight = styled.div`
-
-        
     .SelectAndIconCont {
         position: relative;
-        
+
         .map-icon {
             position : absolute;
             height: 20px;
@@ -96,7 +87,6 @@ export const ProductsTopRight = styled.div`
             transform: translateY(-50%);
         }
     }
-    
 `
 export const ProductsBoxesContainer = styled.div`
     display : grid;
@@ -110,7 +100,6 @@ export const ProductsBoxesContainer = styled.div`
         gap : 1rem;
     }
 `
-
 // products box  styles
 export const ProductsBox = styled.div<Props>`
     padding: 3rem 0 2rem 0;
@@ -136,15 +125,12 @@ export const ProductsBox = styled.div<Props>`
         display: flex;
         align-items: center;
         justify-content: center;
-
     }
 `
-
 // products box icon styles
 export const ProductsBoxIcon = styled.img`
     height: 4.5rem;
 `
-
 // products box text styles
 export const ProductsBoxText = styled.span`
     font-weight: 500;

@@ -19,7 +19,7 @@ export const TransactionsContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: black;
-  margin: 2rem 0rem 0rem 0rem;
+  margin-top: 2rem;
 `;
 
 // transactions text styles

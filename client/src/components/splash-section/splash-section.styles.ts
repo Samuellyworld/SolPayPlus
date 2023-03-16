@@ -15,10 +15,10 @@ export const SplashContainer = styled.div`
     padding: 3rem 4rem 7rem 4rem;
   }
   @media screen and (max-width: 800px) and (min-width : 400px) {
-    padding: 3rem 2rem 3rem 2rem;
+    padding: 3rem 2rem;
   }
   @media screen and (max-width : 400px) {
-    padding : 3rem 1rem 2rem 1rem;
+    padding : 3rem 1rem;
   }
 `;
 
@@ -90,11 +90,10 @@ export const SplashLeft = styled.div`
     margin: 1rem 0rem;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-
+    
     :active {
       transform: translate(0, 5px);
     }
-
     span {
       font-family: "Space Grotesk";
       font-style: normal;
@@ -106,7 +105,6 @@ export const SplashLeft = styled.div`
     }
   }
 `;
-
 // image map styles
 export const ImageMap = styled.img`
   position: absolute;

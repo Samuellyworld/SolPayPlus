@@ -17,7 +17,6 @@ const Footer: () => JSX.Element = () => {
             <img src="/assets/ArrowRight.png" alt="arrow " />
           </button>
         </Link>
-
         <p>© SolPayPlus</p>
       </FooterD>
     </FooterContainer>

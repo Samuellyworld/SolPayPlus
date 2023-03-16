@@ -1,11 +1,11 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
 // import  routes from router-dom;
 import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
+  Navigate,
 } from "react-router-dom";
 
 // import pages that makes up the app;
@@ -15,55 +15,62 @@ import PaymentPage from "./pages/payment";
 import TransactionsPage from "./pages/transactions";
 
 // importing solana and web3 utils for the dapp
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
-import { WalletModalProvider} from '@solana/wallet-adapter-react-ui';
-import { clusterApiUrl } from '@solana/web3.js';
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from "@solana/wallet-adapter-react";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import { UnsafeBurnerWalletAdapter } from "@solana/wallet-adapter-wallets";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { clusterApiUrl } from "@solana/web3.js";
 
-// dispatch
-import {useSelector} from 'react-redux';
-import { RootState } from './store/store';
+// importing RootState fron redux store and useSelector from react-redux
+import { useSelector } from "react-redux";
+import { RootState } from "./store/store";
 
 // Default styles that can be overridden by your app
-require('@solana/wallet-adapter-react-ui/styles.css');
-
+require("@solana/wallet-adapter-react-ui/styles.css");
 
 // App component
 function App() {
+  // The network is set to 'devnet'
+  const network = WalletAdapterNetwork.Devnet;
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const wallets = useMemo(
+    () => [new UnsafeBurnerWalletAdapter()],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [network]
+  );
 
-    // The network is set to 'devnet'
-    const network = WalletAdapterNetwork.Devnet;
-    const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-    const wallets = useMemo(
-         () => [
-            new UnsafeBurnerWalletAdapter(),
-            ],
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [network]
-    );
+  const address = useSelector(
+    (state: RootState) => state?.currentUser?.currentUser
+  );
 
-    const address = useSelector((state : RootState) => (
-       state?.currentUser?.currentUser
-    ))
-      
-// JSX Component
-  return  (
-      <ConnectionProvider endpoint={endpoint}>
-        <WalletProvider wallets={wallets} autoConnect>
-          <WalletModalProvider>
-            <Router>
+  // JSX Component
+  return (
+    <ConnectionProvider endpoint={endpoint}>
+      <WalletProvider wallets={wallets} autoConnect>
+        <WalletModalProvider>
+          <Router>
             <Routes>
-              <Route path='/' element={<LandingPage />} />
-              <Route path='/app' element={<ServicesPage/>} />
-              <Route path='/payment' element={!address ? <Navigate to="/app"/> :  <PaymentPage />} />
-              <Route path='/transactions' element={!address ? <Navigate to="/app"/> : <TransactionsPage/>} />
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/app" element={<ServicesPage />} />
+              <Route
+                path="/payment"
+                element={!address ? <Navigate to="/app" /> : <PaymentPage />}
+              />
+              <Route
+                path="/transactions"
+                element={
+                  !address ? <Navigate to="/app" /> : <TransactionsPage />
+                }
+              />
             </Routes>
-           </Router>
-          </WalletModalProvider>
-       </WalletProvider>
-      </ConnectionProvider>
-      );
+          </Router>
+        </WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
+  );
 }
 
 export default App;

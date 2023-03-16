@@ -17,8 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     margin:0; 
     width:100%;
     overflow-x : hidden;
-  
-
+    
   .bg {
     background: url('/assets/landing.png');
     background-position-y : -5.3rem;

@@ -18,6 +18,7 @@ import Alert from './components/modal/claim';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+//root render
 root.render(
   <React.StrictMode>
     <GlobalStyle />

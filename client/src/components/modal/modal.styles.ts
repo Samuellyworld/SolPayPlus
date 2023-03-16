@@ -1,8 +1,12 @@
 // import relevant module
-import styled from "styled-components"
+import styled from "styled-components";
+
+//declaring PropType interface
 interface PropsType {
     visible : boolean
 }
+
+//decalring PopupContainer styles
 export const PopupContainer = styled.div<PropsType>`
   position: fixed;
   top: 5%;
