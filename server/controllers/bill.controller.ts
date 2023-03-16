@@ -304,7 +304,7 @@ const getBillPayment = async (reference) => {
 // export 
  export{getBillsCategories, getBillsCategory, 
         getStatus, paymentAgencies, 
-        amountToBePaid, createBill, 
+        amountToBePaid, createBill, createBillCashback,
         validateBill, getBillsPayment, getBillPayment}
 
 
