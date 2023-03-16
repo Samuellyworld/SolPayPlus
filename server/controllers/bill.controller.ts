@@ -202,6 +202,23 @@ const createBill = async (req: Request, res: Response) => {
     }
 
 }
+const createBillCashback = async (req: Request, res: Response) => {
+    try {
+        const payload=req.body
+            const response = await flw.Bills.create_bill(payload)
+            res.status(200).json({
+                data: response
+            })   
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            error:{
+                message:'Couldnt make Bill Payment'
+            }
+        })
+    }
+
+}
 
 const validateBill = async (req:Request, res:Response) => {
     try {
