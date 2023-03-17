@@ -40,7 +40,7 @@ const Popup = () => {
    
   }, [showPopup]);
  
-  return <PopupContainer visible={showPopup}>{children}</PopupContainer>;
+  return <PopupContainer visible={showPopup}>{visible && children}</PopupContainer>;
 };
 
 export default Popup;

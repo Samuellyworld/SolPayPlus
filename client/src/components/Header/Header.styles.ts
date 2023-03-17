@@ -118,11 +118,12 @@ export const HeaderConnectWallet = styled.button`
     right: 0;
     position: absolute;
     flex-direction: column;
-    background: purple;
+    background: #880808;
     border-radius: 8px;
     display: none;
     border: 1px;
     top: 37.7px;
+    width: 100%;
   }
   :hover .dropDownConnect__items {
     display: flex;
@@ -145,6 +146,7 @@ export const HeaderConnectWallet = styled.button`
       font-weight: 400;
       font-size: 1rem;
       color: whitesmoke;
+      margin-right : -22px;
     }
   }
 `;

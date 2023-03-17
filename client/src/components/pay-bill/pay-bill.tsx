@@ -43,6 +43,7 @@ import { ObjectType } from "typescript";
 import { PublicKey } from "@solana/web3.js";
 
 import { alert, close} from "../../store/alert/alert.modal.reducer";
+import Spinner from "../spinner/spinner";
 
 //JSX Component
 const PayBill = () => {
@@ -117,6 +118,7 @@ const PayBill = () => {
     }
   return (
     <PayBillContainer>
+        {!bills ? <Spinner/> : 
         <PayBillInnerContainer>
             <PayBillHeader>{
              `${category} Recharge`}</PayBillHeader>
@@ -222,6 +224,7 @@ const PayBill = () => {
                 
             </PayBillForm>
         </PayBillInnerContainer>
+       }
     </PayBillContainer>    
 )
 }

@@ -161,17 +161,8 @@ const Header: React.FC<HeaderPropsType> = ({marquee}) => {
                          localStorage.clear()
                          dispatch(setCurrentUser(""))
                           }} 
-                         style={{
-                            background: 'rgba(170, 74, 68, 0.6)',
-                            borderRadius: "8px"
-                         }}>
-					    {/* <div className='dropDownConnect_img'> */}
-                       {/* <img 
-                         src="/assets/cancel.png" 
-                         alt='disconnect logo' 
-                         style={{width : "2rem"}}
-                        /> */}
-					   {/* </div> */}
+                        >
+
 				       <p> Disconnect</p>
 				   </div>
 			     </div>  

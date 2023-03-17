@@ -1,5 +1,9 @@
-import { useMemo } from 'react';
+//@ts-ignore
+// import lazy and suspense from react
+import { lazy, Suspense } from 'react';
 
+import { useMemo } from 'react';
+import LandingPage from './pages/Landing';
 // import  routes from router-dom;
 import {
   BrowserRouter as Router,
@@ -7,12 +11,6 @@ import {
   Routes,
   Navigate
 } from "react-router-dom";
-
-// import pages that makes up the app;
-import LandingPage from "./pages/Landing";
-import ServicesPage from "./pages/services";
-import PaymentPage from "./pages/payment";
-import TransactionsPage from "./pages/transactions";
 
 // importing solana and web3 utils for the dapp
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
@@ -24,9 +22,15 @@ import { clusterApiUrl } from '@solana/web3.js';
 // dispatch
 import {useSelector} from 'react-redux';
 import { RootState } from './store/store';
+import Spinner from './components/spinner/spinner';
 
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
+
+// import pages that makes up the app;
+const ServicesPage = lazy(() => import('./pages/services'));
+const PaymentPage = lazy(() => import('./pages/payment'));
+const TransactionsPage = lazy(() => import('./pages/transactions'));
 
 
 // App component
@@ -55,9 +59,29 @@ function App() {
             <Router>
             <Routes>
               <Route path='/' element={<LandingPage />} />
-              <Route path='/app' element={<ServicesPage/>} />
-              <Route path='/payment' element={!address ? <Navigate to="/app"/> :  <PaymentPage />} />
-              <Route path='/transactions' element={!address ? <Navigate to="/app"/> : <TransactionsPage/>} />
+              <Route path='/app' element={
+                 <Suspense fallback={<Spinner />}>
+                     <ServicesPage/>
+                 </Suspense>
+                 } />
+              <Route path='/payment' element={
+                            !address 
+                             ? <Navigate to="/app"/> :
+                              (
+                               <Suspense fallback={<Spinner/>}>
+                                  <PaymentPage />
+                               </Suspense>
+                              )} 
+                              />
+              <Route path='/transactions' element={
+                                !address
+                                 ? <Navigate to="/app"/>
+                                 :(
+                                  <Suspense fallback={<Spinner/>}>
+                                    <TransactionsPage/>
+                                  </Suspense>
+                                 )}
+                                  />
             </Routes>
            </Router>
           </WalletModalProvider>
