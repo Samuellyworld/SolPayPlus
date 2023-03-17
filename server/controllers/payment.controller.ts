@@ -22,12 +22,15 @@ export const initializePayment = async (req: Request, res: Response) => {
         const reference = new Keypair().publicKey;
         const amount = new BigNumber(req.body.amount);
         const url = encodeURL({ amount, recipient, label: req.body.label, reference });
+
+        //response
         res.status(200).json({
             message: 'Transaction Initialized.',
             data: { url },
         });
     }
     catch (error) {
+        //error response
         res.status(500).json({
             error: {
                 message:'Couldn\'t initialize transaction.'
@@ -58,13 +61,12 @@ export const validatePayment = async (req: Request, res: Response) => {
         
         res.status(500).json({
             error: {
-
                 message:'Couldn\'t validate payment.'
             }
         })
     }
 }
-
+//validate a transaction
 export const validate = async (reference:string, amount:any) => {
     try {
         const connection = new Connection(clusterApiUrl('devnet'), 'confirmed');

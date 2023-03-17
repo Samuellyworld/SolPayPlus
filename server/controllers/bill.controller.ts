@@ -269,7 +269,7 @@ const paymentAgencies = async (req: Request, res: Response) => {
     //send status and message to the frontend
     res.status(500).json({
       error: {
-        message: "Couldnt fetch payment agencies",
+        message: `Couldn't fetch payment agencies`,
       },
     });
   }
@@ -305,7 +305,7 @@ const createBill = async (req: Request, res: Response) => {
     //sending status and message to frontend
     res.status(500).json({
       error: {
-        message: "Couldnt make Bill Payment",
+        message: `Couldn't make Bill Payment`,
       },
     });
   }
@@ -334,7 +334,7 @@ const validateBill = async (req: Request, res: Response) => {
     //sending status and message to frontend
     res.status(500).json({
       error: {
-        message: "Couldn't Validate Customer",
+        message: `Couldn't Validate Customer`,
       },
     });
   }
@@ -362,7 +362,7 @@ const getBillsPayment = async (req: Request, res: Response) => {
     //sending status and message to frontend
     res.status(500).json({
       error: {
-        message: "Couldn't get Bill Payments",
+        message: `Couldn't get Bill Payments`,
       },
     });
   }
@@ -390,7 +390,7 @@ const amountToBePaid = async (req: Request, res: Response) => {
     //sending status and message to frontend
     res.status(500).json({
       error: {
-        message: "Couldnt Resolve amount",
+        message: `Couldn't Resolve amount`,
       },
     });
   }
