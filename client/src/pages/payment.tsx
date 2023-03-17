@@ -6,7 +6,7 @@ import PayBill from "../components/pay-bill/pay-bill";
  const PaymentPage = () => {
     return (
         <div className="payment">
-               <Header/>
+               <Header marquee = {false}/>
                 <PayBill/>
         </div> 
         );

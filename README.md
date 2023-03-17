@@ -73,7 +73,7 @@ easier to provide mobile payment solutions.
  $ npm run install
 ```
 
-- start both server and client
+- start both server and client on development.
 ```
  $ npm run dev
 ```

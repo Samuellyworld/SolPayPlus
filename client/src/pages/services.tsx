@@ -5,7 +5,7 @@ import Header from "../components/Header/Header";
 const ServicesPage : () => JSX.Element = () => {
     return (
        <div className="services">
-             <Header/>
+             <Header marquee ={false}/>
              <Products />
        </div>
     )
