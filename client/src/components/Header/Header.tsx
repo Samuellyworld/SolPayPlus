@@ -18,7 +18,7 @@ import { setCurrentUser, setRewards } from "../../store/user/user.reducer";
 // @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
-import Marquee from "../marquee/marquee";
+import MarqueeDiv from "../marquee/marquee";
 
 // import relevant smart contract interact module
 // import { getSppusers, sortUser } from "../../utils/interact";
@@ -27,11 +27,12 @@ import { alert, bottomAlert, close } from "../../store/alert/alert.modal.reducer
 // use navigate from react-router dom
 import { useNavigate } from "react-router-dom";
 import { getRewards, sortUser, userRewards } from "../../utils/requests";
+import { HeaderPropsType } from "../../types/types";
 
 
 
 // header component
-const Header : () => JSX.Element = () => {
+const Header: React.FC<HeaderPropsType> = ({marquee}) => {
     const dispatch  = useDispatch()
 
     const Navigate = useNavigate()
@@ -91,7 +92,7 @@ const Header : () => JSX.Element = () => {
      // building block
    return (
      <HeaderContainer>
-        {/* <Marquee/> */}
+       { marquee &&  <MarqueeDiv/>}
       <LogoContainer>
         <Link to="/" style={{
             display : "flex",

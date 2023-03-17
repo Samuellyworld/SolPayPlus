@@ -6,7 +6,7 @@ import Header from "../components/Header/Header";
 const TransactionsPage = () => {
     return (
         <div className="transactions">
-            <Header/>
+            <Header marquee={false}/>
             <Transactions />
         </div>
     );

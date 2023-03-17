@@ -35,6 +35,12 @@ export interface PopUpType {
     visible : boolean,
 
 }
+
+// Header Props Type
+export interface HeaderPropsType {
+    marquee :  boolean
+}
+
 // dropdown state
 export type DropdownStateType = [boolean , React.Dispatch<React.SetStateAction<boolean>>]
 export type DropdownSelectType = [string, React.Dispatch<React.SetStateAction<string>>]

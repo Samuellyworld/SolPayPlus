@@ -10,7 +10,7 @@ const LandingPage : () => JSX.Element = () => {
     return (
       <div className="landing">
         <div className="bg">
-         <Header/>
+         <Header marquee={true}/>
          <SplashSection/>
         </div>
         <HeroSection />

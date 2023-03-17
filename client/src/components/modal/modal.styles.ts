@@ -10,6 +10,7 @@ export const PopupContainer = styled.div<PropsType>`
   transform: translate(-50%, -50%);
   padding: 1rem;
   background-color: whitesmoke;
+  display : ${({visible}) => (visible? "flex" : "none")}
   border-radius: 0.5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
   opacity: ${({ visible }) => (visible ? 1 : 0)};
