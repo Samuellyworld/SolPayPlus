@@ -17,7 +17,7 @@ export const MarqueeContainer = styled.div`
     top: 0px;
     cursor: pointer;
     margin: 8px 0 32px 0;
-    z-index: 2;
+    z-index: 0;
     position: absolute;
 
     
@@ -44,6 +44,10 @@ export const MarqueeContainer = styled.div`
     font-family: "Space Grotesk";
     font-style: normal;
     font-weight: 500;
+
+    @media screen and (max-width: 500px) {
+        font-size : 10px;
+    }
   }
   
    li::before {
