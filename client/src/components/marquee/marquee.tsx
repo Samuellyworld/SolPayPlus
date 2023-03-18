@@ -11,19 +11,17 @@ const MarqueeDiv = () => {
           <Marquee gradient={false} speed={20}>
         <ul>
          <li>SolPayPLus has big dreams</li>
-         <li>It allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.</li>
+         <li>Leveraging solana pay.</li>
          <li>Pay for Utility Bills with Crypto</li>
          <li>SolPayPLus has big dreams</li>
-         <li>It allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.</li>
+         <li>Pay and receive rewards.</li>
          <li>Pay for Utility Bills with Crypto</li>
          <li>SolPayPLus has big dreams</li>
-         <li>It allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.</li>
+         <li>receive cashback rewards on every payment.</li>
          <li>Pay for Utility Bills with Crypto</li>
          <li>SolPayPLus has big dreams</li>
-         <li>It allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.</li>
          <li>Pay for Utility Bills with Crypto</li>
          <li>SolPayPLus has big dreams</li>
-         <li>It allow for payment of several kinds of bills (including airtime, data bundles, Internet, electricity and cable TV) in Nigeria and across multiple African countries.</li>
          <li>Pay for Utility Bills with Crypto</li>
        </ul>
       </Marquee>
